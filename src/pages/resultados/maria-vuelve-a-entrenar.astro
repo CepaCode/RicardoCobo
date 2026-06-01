@@ -1,0 +1,70 @@
+---
+import CaseStudyArticle from "../../components/CaseStudyArticle.astro";
+import { clientStoryImages } from "../../data/clientStories";
+import heroImg from "../../assets/ParejaWorkingOut.jpg";
+import beforeImg from "../../assets/RicardoFront2.jpg";
+import afterImg from "../../assets/RicardoWorkingOut.jpg";
+
+// Realistic but FICTIONAL placeholder story for the sales prototype.
+const stats = [
+  { n: "0 → 2", l: "lesiones de espalda al año" },
+  { n: "+40%", l: "de fuerza en tren inferior" },
+  { n: "8 meses", l: "de progreso constante" },
+];
+
+const story = [
+  {
+    heading: "El punto de partida",
+    paragraphs: [
+      "María tenía 41 años y llevaba casi seis sin hacer ejercicio de forma regular. Abogada y madre de dos niños, había pasado de ser una persona muy activa a no encontrar nunca el momento. A las molestias de espalda se sumaba algo más difícil de admitir: había perdido la confianza en su propio cuerpo.",
+      "“No sé ni por dónde empezar” fue una de las primeras cosas que dijo en la valoración. Y precisamente por ahí empezamos.",
+    ],
+  },
+  {
+    heading: "El plan",
+    paragraphs: [
+      "El primer objetivo no fue estético, sino funcional: recuperar movilidad, fortalecer la zona media y eliminar el dolor de espalda que arrastraba desde hacía años. Trabajamos con cargas progresivas y mucho énfasis en la técnica.",
+      "Descartamos por completo las dietas restrictivas. En su caso, la clave era reconstruir una relación sana con el ejercicio y la comida, sin culpa y sin obsesión.",
+    ],
+  },
+  {
+    heading: "La transformación",
+    paragraphs: [
+      "En pocas semanas, el dolor de espalda desapareció. María empezó a notar fuerza en gestos cotidianos: cargar la compra, jugar con sus hijos, subir cuestas sin molestias. Esa sensación de capacidad fue el verdadero punto de inflexión.",
+      "Ocho meses después, entrena con seguridad, levanta cargas que jamás imaginó y, sobre todo, ha vuelto a disfrutar de moverse. El ejercicio dejó de ser una asignatura pendiente para convertirse en parte de su vida.",
+    ],
+  },
+];
+
+const lessons = [
+  "Volver a empezar no es retroceder: es construir sobre una base más madura y consciente.",
+  "La fuerza es salud. Un cuerpo fuerte protege la espalda y devuelve autonomía en el día a día.",
+  "Sin dietas extremas: una relación sana con la comida es más poderosa que cualquier restricción.",
+  "La confianza se entrena. Cada pequeño logro suma y cambia la forma de verse a uno mismo.",
+];
+
+const related = [
+  { name: "Carlos", href: "/resultados/carlos-recupera-su-forma" },
+  { name: "Javier", href: "/resultados/javier-recupera-su-energia" },
+];
+---
+
+<CaseStudyArticle
+  name="María"
+  meta="María · 41 · Abogada"
+  title="Volvió a entrenar después de años parada"
+  intro="Cómo recuperar la fuerza, la movilidad y la confianza cuando hace años que el ejercicio dejó de formar parte de tu vida."
+  heroImage={heroImg}
+  beforeImage={beforeImg}
+  afterImage={afterImg}
+  heroSrc={clientStoryImages.maria.cover}
+  beforeSrc={clientStoryImages.maria.before}
+  afterSrc={clientStoryImages.maria.after}
+  quote="Recuperé mucho más que la forma física. Recuperé la confianza en lo que mi cuerpo puede hacer."
+  stats={stats}
+  story={story}
+  lessons={lessons}
+  related={related}
+  pageTitle="María vuelve a entrenar · Resultados · Ricardo Cobo"
+  pageDescription="María, abogada de 41 años, volvió a entrenar tras años parada, eliminó su dolor de espalda y recuperó fuerza y confianza con Ricardo Cobo."
+/>

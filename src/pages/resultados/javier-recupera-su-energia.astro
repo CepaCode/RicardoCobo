@@ -1,0 +1,71 @@
+---
+import CaseStudyArticle from "../../components/CaseStudyArticle.astro";
+import { clientStoryImages } from "../../data/clientStories";
+import heroImg from "../../assets/RicardoWorkingOut2.jpg";
+import beforeImg from "../../assets/RicardoFront.png";
+import afterImg from "../../assets/RicardoFront2.jpg";
+
+// Realistic but FICTIONAL placeholder story for the sales prototype.
+const stats = [
+  { n: "2 → 4", l: "entrenamientos cada semana" },
+  { n: "−7 cm", l: "de perímetro de cintura" },
+  { n: "11 meses", l: "manteniendo el hábito" },
+];
+
+const story = [
+  {
+    heading: "El punto de partida",
+    paragraphs: [
+      "Javier, 52 años, dirige su propia empresa. Su mayor enemigo no era la falta de voluntad, sino su agenda: viajes constantes, reuniones que se alargaban y un calendario que cambiaba cada semana. Había intentado varias veces ponerse en forma, pero siempre acababa abandonando a las pocas semanas.",
+      "Su objetivo era claro y honesto: no buscaba un cuerpo de portada, sino tener más energía, dormir mejor y sostener un hábito en el tiempo.",
+    ],
+  },
+  {
+    heading: "El plan",
+    paragraphs: [
+      "Diseñamos un sistema flexible pensado para la incertidumbre de su agenda: rutinas adaptables de 30 a 45 minutos, alternativas para entrenar en hoteles cuando viajaba y prioridades claras para las semanas más caóticas.",
+      "La regla de oro fue la consistencia por encima de la perfección. Mejor entrenar cuatro veces de forma imperfecta que planificar seis y no cumplir ninguna.",
+    ],
+  },
+  {
+    heading: "La transformación",
+    paragraphs: [
+      "Lo primero que cambió fue la energía. En cuestión de semanas, Javier llegaba a las reuniones de la tarde con la cabeza más despejada y dormía mejor. El físico vino después, casi como una consecuencia natural del nuevo ritmo.",
+      "Once meses después, entrenar forma parte de su identidad. No depende de la motivación: es simplemente lo que hace, esté donde esté. Ese es el verdadero éxito.",
+    ],
+  },
+];
+
+const lessons = [
+  "Un sistema flexible sobrevive a una agenda imposible. La rigidez es la principal causa de abandono.",
+  "Consistencia por encima de perfección: lo que se sostiene en el tiempo es lo que transforma.",
+  "La energía y el sueño mejoran antes que el físico, y son el mejor combustible para seguir.",
+  "Cuando el hábito se vuelve identidad, deja de costar esfuerzo mantenerlo.",
+];
+
+const related = [
+  { name: "Carlos", href: "/resultados/carlos-recupera-su-forma" },
+  { name: "María", href: "/resultados/maria-vuelve-a-entrenar" },
+];
+---
+
+<CaseStudyArticle
+  name="Javier"
+  meta="Javier · 52 · Empresario"
+  title="Construyó un hábito que sobrevive a su agenda"
+  intro="La historia de un directivo que dejó de pelear contra su calendario y encontró un sistema sostenible para cuidarse de verdad."
+  heroImage={heroImg}
+  beforeImage={beforeImg}
+  afterImage={afterImg}
+  heroSrc={clientStoryImages.javier.cover}
+  beforeSrc={clientStoryImages.javier.before}
+  afterSrc={clientStoryImages.javier.after}
+  framePosition="object-top"
+  quote="Por fin tengo un sistema que aguanta mi agenda, no uno que se rompe a la primera semana complicada."
+  stats={stats}
+  story={story}
+  lessons={lessons}
+  related={related}
+  pageTitle="Javier recupera su energía · Resultados · Ricardo Cobo"
+  pageDescription="Javier, empresario de 52 años, construyó un hábito de entrenamiento sostenible a pesar de su agenda y recuperó energía y salud con Ricardo Cobo."
+/>

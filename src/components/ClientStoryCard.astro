@@ -1,0 +1,63 @@
+---
+import type { ImageMetadata } from "astro";
+
+/**
+ * ClientStoryCard
+ * ---------------
+ * Editorial, magazine-style card for a client transformation story.
+ * Large imagery + sophisticated overlay, not a generic boxed card.
+ */
+interface Props {
+  image: ImageMetadata;
+  imageSrc?: string; // optional public URL (e.g. /media/client-stories/carlos-cover.jpg); falls back to `image` if missing
+  name: string;
+  headline: string;
+  teaser: string;
+  meta: string; // e.g. "Carlos · 48 · Director comercial"
+  href: string;
+  index: string; // e.g. "01"
+}
+
+const { image, imageSrc, name, headline, teaser, meta, href, index } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group relative flex flex-col overflow-hidden rounded-3xl bg-navy text-white ring-1 ring-navy/5 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-brand/25"
+>
+  <div class="relative aspect-[4/5] overflow-hidden">
+    <img
+      src={imageSrc ?? image.src}
+      data-fallback={image.src}
+      onerror="this.onerror=null;this.src=this.dataset.fallback"
+      alt={`${name} — historia de transformación`}
+      width={image.width}
+      height={image.height}
+      class="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/55 to-navy/5"></div>
+
+    <span class="absolute right-5 top-5 font-display text-4xl font-bold text-white/25">
+      {index}
+    </span>
+
+    <div class="absolute inset-x-0 bottom-0 p-6 sm:p-7">
+      <p class="eyebrow text-brand-200">{meta}</p>
+      <h3 class="mt-3 font-display text-2xl font-bold leading-tight sm:text-3xl">
+        {headline}
+      </h3>
+      <p class="mt-3 text-pretty text-sm leading-relaxed text-white/70 sm:text-base">
+        {teaser}
+      </p>
+      <span
+        class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-200 transition-all duration-300 group-hover:gap-3.5"
+      >
+        Ver la historia de {name}
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>

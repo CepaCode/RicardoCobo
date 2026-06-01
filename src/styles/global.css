@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Ricardo Cobo — Premium brand design system
+   Brand-first palette: corporate blue #062170 + white/off-white
+   ============================================================ */
+
+@theme {
+  /* Brand blue scale (anchored on the corporate blue #062170) */
+  --color-brand-50: #eef2fb;
+  --color-brand-100: #d9e2f5;
+  --color-brand-200: #b3c4ea;
+  --color-brand-300: #8198d9;
+  --color-brand-400: #4a64bd;
+  --color-brand-500: #21399b;
+  --color-brand: #062170;
+  --color-brand-700: #051a5a;
+  --color-brand-800: #041346;
+  --color-navy: #030d34;
+  --color-ink: #020920;
+
+  /* Neutrals — white / off-white / soft grey-blue */
+  --color-mist: #f6f8fd;
+  --color-haze: #eaf0f9;
+  --color-steel: #d4def0;
+  --color-slate-blue: #5a6b91;
+
+  /* Typography */
+  --font-display: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Editorial scale */
+  --text-mega: clamp(2.75rem, 7vw, 6.5rem);
+  --text-mega--line-height: 0.95;
+  --text-mega--letter-spacing: -0.03em;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-navy);
+    background-color: #ffffff;
+  }
+
+  ::selection {
+    background-color: var(--color-brand);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  /* Display headline helper */
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  /* Eyebrow label used across editorial sections */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+}
+
+/* Subtle entrance animation for editorial reveals */
+@keyframes rc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rc-rise {
+  animation: rc-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rc-rise {
+    animation: none;
+  }
+}

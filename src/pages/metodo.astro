@@ -1,0 +1,209 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import VideoPlaceholder from "../components/VideoPlaceholder.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import FinalCTA from "../components/FinalCTA.astro";
+
+import assessmentImg from "../assets/RicardoFront2.jpg";
+import trainingImg from "../assets/RicardoWorkingOut.jpg";
+
+const phases = [
+  {
+    n: "01",
+    title: "Valoración",
+    lead: "Entender tu punto de partida",
+    body: "Analizamos tu historia, tu nivel actual, tus limitaciones y tu objetivo real. Sin esta foto honesta, ningún plan funciona.",
+    points: ["Entrevista y objetivos", "Valoración física y de movilidad", "Análisis de hábitos y agenda"],
+  },
+  {
+    n: "02",
+    title: "Plan personalizado",
+    lead: "Diseñado solo para ti",
+    body: "Construyo un programa a medida de tu cuerpo, tu tiempo y tus metas. Nada genérico: cada decisión tiene un porqué.",
+    points: ["Programa de entrenamiento propio", "Pautas de nutrición realistas", "Adaptado a tu disponibilidad"],
+  },
+  {
+    n: "03",
+    title: "Entrenamiento supervisado",
+    lead: "Técnica y seguridad en cada sesión",
+    body: "Entrenas conmigo a tu lado, corrigiendo técnica y ajustando cargas. Aprovechas cada minuto y evitas lesiones.",
+    points: ["Supervisión directa", "Corrección técnica continua", "Intensidad ajustada a cada día"],
+  },
+  {
+    n: "04",
+    title: "Progreso sostenible",
+    lead: "Resultados que permanecen",
+    body: "Medimos, ajustamos y consolidamos hábitos que duran cuando termina el programa. El objetivo es tu autonomía.",
+    points: ["Seguimiento medible", "Reajustes periódicos", "Hábitos para toda la vida"],
+  },
+];
+---
+
+<BaseLayout
+  title="Método · Ricardo Cobo · Entrenamiento Personal en Santander"
+  description="El método de Ricardo Cobo: valoración, plan personalizado, entrenamiento supervisado y progreso sostenible. Un sistema en cuatro fases para resultados duraderos."
+>
+  <!-- ============================ HERO ============================ -->
+  <section class="relative isolate overflow-hidden bg-navy pt-32">
+    <img
+      src={assessmentImg.src}
+      alt="Ricardo Cobo durante una sesión de valoración"
+      width={assessmentImg.width}
+      height={assessmentImg.height}
+      class="absolute inset-0 h-full w-full object-cover object-center opacity-40"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/80 to-navy"></div>
+
+    <div class="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+      <div class="max-w-3xl rc-rise">
+        <span class="eyebrow inline-flex items-center gap-2 text-brand-200">
+          <span class="h-px w-8 bg-brand-300"></span>
+          El método
+        </span>
+        <h1 class="mt-6 font-display text-5xl font-extrabold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
+          Un sistema, cuatro fases, resultados que duran
+        </h1>
+        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
+          No improviso. Cada persona avanza por un proceso claro y probado, donde
+          cada fase prepara la siguiente. Así convertimos el esfuerzo en
+          resultados reales y sostenibles.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INTRO + VIDEO ===================== -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <p class="eyebrow text-brand">Todo empieza aquí</p>
+          <h2 class="mt-4 font-display text-3xl font-bold leading-tight text-navy sm:text-4xl lg:text-5xl">
+            La valoración lo cambia todo
+          </h2>
+          <p class="mt-6 text-lg leading-relaxed text-slate-blue">
+            Antes de proponerte nada, dedico tiempo a entenderte. Tu historia, tus
+            lesiones, tu nivel de energía, tu agenda real. Esa primera sesión es la
+            base sobre la que se construye todo lo demás —y la razón por la que el
+            plan funciona desde el primer día.
+          </p>
+          <a
+            href="/contacto"
+            class="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-brand px-8 py-4 text-base font-semibold text-white shadow-lg shadow-brand/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-700"
+          >
+            Reservar mi valoración
+            <svg class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div>
+          <!-- Auto-activates when /media/assessment-session.mp4 is added to public/media -->
+          <VideoPlaceholder
+            fallbackImage={assessmentImg}
+            alt="Sesión de valoración con Ricardo Cobo"
+            videoPath="/media/assessment-session.mp4"
+            ratio="aspect-[4/3]"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== PHASES ======================== -->
+  <section class="bg-mist">
+    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+      <div class="max-w-2xl">
+        <p class="eyebrow text-brand">Las cuatro fases</p>
+        <h2 class="mt-4 font-display text-3xl font-bold leading-[1.1] text-navy sm:text-4xl lg:text-5xl">
+          Del primer día a tu mejor versión
+        </h2>
+      </div>
+
+      <div class="mt-16 space-y-6">
+        {
+          phases.map((p, i) => (
+            <article class="group grid gap-8 rounded-3xl bg-white p-8 ring-1 ring-haze transition-all duration-300 hover:shadow-xl hover:shadow-brand/10 sm:p-10 lg:grid-cols-[auto_1fr_1fr] lg:items-center lg:gap-12">
+              <div class="font-display text-7xl font-extrabold leading-none text-brand/15 transition-colors duration-300 group-hover:text-brand/30 sm:text-8xl">
+                {p.n}
+              </div>
+              <div>
+                <p class="eyebrow text-brand">{p.lead}</p>
+                <h3 class="mt-2 font-display text-3xl font-bold text-navy">{p.title}</h3>
+                <p class="mt-4 leading-relaxed text-slate-blue">{p.body}</p>
+              </div>
+              <ul class="space-y-3 lg:border-l lg:border-haze lg:pl-12">
+                {p.points.map((pt) => (
+                  <li class="flex items-center gap-3 text-navy">
+                    <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+                        <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    <span class="font-medium">{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= QUOTE ========================= -->
+  <QuoteSection
+    quote="El método no es entrenar duro un mes. Es construir algo que dure toda la vida."
+    author="Ricardo Cobo"
+    role="Entrenador personal · Santander"
+    variant="light"
+  />
+
+  <!-- ==================== TRAINING DETAIL ==================== -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="overflow-hidden rounded-3xl">
+          <img
+            src={trainingImg.src}
+            alt="Entrenamiento supervisado con Ricardo Cobo"
+            width={trainingImg.width}
+            height={trainingImg.height}
+            class="h-full w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div>
+          <p class="eyebrow text-brand">Por qué este método</p>
+          <h2 class="mt-4 font-display text-3xl font-bold leading-tight text-navy sm:text-4xl">
+            Menos ruido, más resultados
+          </h2>
+          <p class="mt-6 text-lg leading-relaxed text-slate-blue">
+            La industria del fitness vive de la complejidad y de las promesas
+            imposibles. Mi trabajo es justo lo contrario: simplificar, priorizar y
+            acompañarte para que cada semana estés un poco mejor que la anterior.
+          </p>
+          <ul class="mt-8 space-y-4">
+            {
+              [
+                "Sin planes genéricos descargados de internet",
+                "Sin dietas extremas que no puedes mantener",
+                "Sin entrenar por entrenar: cada sesión tiene objetivo",
+                "Con un acompañamiento cercano y profesional",
+              ].map((t) => (
+                <li class="flex items-start gap-3 text-navy">
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand" />
+                  <span class="text-lg">{t}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== FINAL CTA ====================== -->
+  <FinalCTA />
+</BaseLayout>

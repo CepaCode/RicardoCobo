@@ -1,0 +1,66 @@
+---
+/**
+ * FinalCTA
+ * --------
+ * High-conversion enquiry section, inspired by premium coaching enquiry areas.
+ * Reused across Home, Método and Resultados.
+ */
+import EnquiryForm from "./EnquiryForm.astro";
+import VideoPlaceholder from "./VideoPlaceholder.astro";
+import ricardoFront from "../assets/RicardoFront2.jpg";
+---
+
+<section id="valoracion" class="relative overflow-hidden bg-navy">
+  <!-- Brand glow accents -->
+  <div class="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand/30 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-40 -left-24 h-96 w-96 rounded-full bg-brand-500/20 blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+    <div class="grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
+      <div class="text-white">
+        <p class="eyebrow text-brand-200">Empieza aquí</p>
+        <h2 class="mt-5 font-display text-4xl font-bold leading-[1.05] sm:text-5xl lg:text-6xl">
+          Empieza con una<br />valoración personal
+        </h2>
+        <p class="mt-6 max-w-md text-lg leading-relaxed text-white/70">
+          Hablemos de tu objetivo y veamos si este enfoque encaja contigo. Una
+          conversación honesta, sin compromiso, para decidir el mejor punto de
+          partida.
+        </p>
+
+        <!-- Auto-activates when /media/final-cta-training.mp4 is added to public/media -->
+        <div class="mt-10">
+          <VideoPlaceholder
+            fallbackImage={ricardoFront}
+            alt="Ricardo Cobo entrenando a un cliente"
+            videoPath="/media/final-cta-training.mp4"
+            ratio="aspect-[16/10]"
+          />
+        </div>
+
+        <dl class="mt-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
+          <div>
+            <dt class="font-display text-3xl font-bold text-white">+20</dt>
+            <dd class="mt-1 text-xs text-white/60">años de experiencia</dd>
+          </div>
+          <div>
+            <dt class="font-display text-3xl font-bold text-white">+500</dt>
+            <dd class="mt-1 text-xs text-white/60">personas entrenadas</dd>
+          </div>
+          <div>
+            <dt class="font-display text-3xl font-bold text-white">100%</dt>
+            <dd class="mt-1 text-xs text-white/60">personalizado</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="rounded-3xl bg-white p-7 shadow-2xl shadow-black/30 sm:p-9">
+        <h3 class="font-display text-xl font-bold text-navy">Solicita tu valoración</h3>
+        <p class="mb-7 mt-1.5 text-sm text-slate-blue">
+          Te responderé personalmente en menos de 24&nbsp;horas.
+        </p>
+        <EnquiryForm />
+      </div>
+    </div>
+  </div>
+</section>

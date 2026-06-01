@@ -1,0 +1,66 @@
+---
+// Premium footer with brand wordmark, navigation and prototype note.
+import logo from "../assets/imgLogoRCFondoAzul.png";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-navy text-white">
+  <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-20">
+    <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
+      <div>
+        <img
+          src={logo.src}
+          alt="Ricardo Cobo · Entrenamiento Personal"
+          class="h-14 w-auto rounded-xl"
+          width={logo.width}
+          height={logo.height}
+        />
+        <p class="mt-6 max-w-sm text-balance text-lg leading-relaxed text-white/70">
+          Entrenamiento personal de alto nivel en Santander. Resultados reales,
+          sostenibles y diseñados para personas con una vida exigente.
+        </p>
+      </div>
+
+      <nav aria-label="Navegación del pie" class="text-white/75">
+        <h2 class="eyebrow text-brand-200">Navegación</h2>
+        <ul class="mt-5 space-y-3 text-base">
+          <li><a class="transition-colors hover:text-white" href="/">Inicio</a></li>
+          <li><a class="transition-colors hover:text-white" href="/resultados">Resultados</a></li>
+          <li><a class="transition-colors hover:text-white" href="/metodo">Método</a></li>
+          <li><a class="transition-colors hover:text-white" href="/contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="text-white/75">
+        <h2 class="eyebrow text-brand-200">Contacto</h2>
+        <ul class="mt-5 space-y-3 text-base">
+          <li>Santander, Cantabria</li>
+          <li>
+            <a class="transition-colors hover:text-white" href="mailto:hola@ricardocobo.es"
+              >hola@ricardocobo.es</a
+            >
+          </li>
+          <li>
+            <!-- TODO: reemplazar por el número real de WhatsApp de Ricardo -->
+            <a
+              class="inline-flex items-center gap-2 transition-colors hover:text-white"
+              href="https://wa.me/000000000000"
+            >
+              WhatsApp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {year} Ricardo Cobo · Entrenamiento Personal</p>
+      <p class="text-brand-200/80">
+        Prototipo de presentación · contenidos e imágenes de muestra
+      </p>
+    </div>
+  </div>
+</footer>

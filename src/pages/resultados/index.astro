@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ClientStoryCard from "../../components/ClientStoryCard.astro";
+import QuoteSection from "../../components/QuoteSection.astro";
+import FinalCTA from "../../components/FinalCTA.astro";
+import { clientStoryImages } from "../../data/clientStories";
+
+import trainingImg from "../../assets/RicardoWorkingOut.jpg";
+import trainingImg2 from "../../assets/RicardoWorkingOut2.jpg";
+import parejaImg from "../../assets/ParejaWorkingOut.jpg";
+
+const stories = [
+  {
+    index: "01",
+    image: trainingImg,
+    imageSrc: clientStoryImages.carlos.cover,
+    name: "Carlos",
+    meta: "Carlos · 48 · Director comercial",
+    headline: "Recuperó su forma y volvió a sentirse en control",
+    teaser:
+      "Perdió 14 kg, recuperó la confianza y hoy tiene energía de sobra para su familia y su trabajo.",
+    href: "/resultados/carlos-recupera-su-forma",
+  },
+  {
+    index: "02",
+    image: parejaImg,
+    imageSrc: clientStoryImages.maria.cover,
+    name: "María",
+    meta: "María · 41 · Abogada",
+    headline: "Volvió a entrenar después de años parada",
+    teaser:
+      "Recuperó fuerza, movilidad y una relación sana con el ejercicio, sin obsesiones ni dietas extremas.",
+    href: "/resultados/maria-vuelve-a-entrenar",
+  },
+  {
+    index: "03",
+    image: trainingImg2,
+    imageSrc: clientStoryImages.javier.cover,
+    name: "Javier",
+    meta: "Javier · 52 · Empresario",
+    headline: "Construyó un hábito que sobrevive a su agenda",
+    teaser:
+      "Entre viajes y reuniones, logró un sistema sostenible que mejoró su energía y su salud.",
+    href: "/resultados/javier-recupera-su-energia",
+  },
+];
+---
+
+<BaseLayout
+  title="Resultados · Ricardo Cobo · Entrenamiento Personal en Santander"
+  description="Historias reales de transformación con Ricardo Cobo. Profesionales que recuperaron su forma física, su fuerza y su confianza con un método 100% personalizado."
+>
+  <!-- ============================ HERO ============================ -->
+  <section class="relative isolate overflow-hidden bg-navy pt-32">
+    <div class="pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-brand/30 blur-3xl"></div>
+    <div class="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+      <div class="max-w-3xl rc-rise">
+        <span class="eyebrow inline-flex items-center gap-2 text-brand-200">
+          <span class="h-px w-8 bg-brand-300"></span>
+          Resultados
+        </span>
+        <h1 class="mt-6 font-display text-5xl font-extrabold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
+          Historias reales.<br />Cambios extraordinarios.
+        </h1>
+        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
+          Personas como tú —con trabajos exigentes, familia y poco tiempo libre—
+          que decidieron invertir en sí mismas. Estas son sus historias de
+          esfuerzo, constancia y transformación.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= GRID ========================= -->
+  <section class="bg-mist">
+    <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {stories.map((s) => <ClientStoryCard {...s} />)}
+      </div>
+
+      <p class="mx-auto mt-12 max-w-2xl text-center text-sm text-slate-blue">
+        Cada historia es la de una persona real que decidió dar el paso. Detrás
+        de cada transformación hay meses de trabajo, constancia y un plan hecho
+        a su medida.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================= QUOTE ========================= -->
+  <QuoteSection
+    quote="Cada historia empieza con una decisión: dejar de esperar el momento perfecto."
+    author="Ricardo Cobo"
+    role="Entrenador personal · Santander"
+  />
+
+  <!-- ====================== FINAL CTA ====================== -->
+  <FinalCTA />
+</BaseLayout>

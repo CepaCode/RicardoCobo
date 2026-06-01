@@ -1,0 +1,70 @@
+---
+import CaseStudyArticle from "../../components/CaseStudyArticle.astro";
+import { clientStoryImages } from "../../data/clientStories";
+import heroImg from "../../assets/RicardoWorkingOut.jpg";
+import beforeImg from "../../assets/RicardoFront.png";
+import afterImg from "../../assets/RicardoWorkingOut2.jpg";
+
+// Realistic but FICTIONAL placeholder story for the sales prototype.
+const stats = [
+  { n: "-14 kg", l: "de grasa en 7 meses" },
+  { n: "+9 kg", l: "de masa muscular estimada" },
+  { n: "3 días", l: "de entrenamiento por semana" },
+];
+
+const story = [
+  {
+    heading: "El punto de partida",
+    paragraphs: [
+      "Carlos llegó a la valoración convencido de que “ya no tenía remedio”. A sus 48 años, con un puesto de director comercial y dos hijos adolescentes, llevaba más de una década sin pisar un gimnasio. Las cenas con clientes, los viajes y el estrés habían dejado huella: cansancio constante, mala calidad de sueño y una sensación de haber perdido el control de su propio cuerpo.",
+      "Lo que más le pesaba no era el número de la báscula, sino lo que sentía al mirarse al espejo y al subir las escaleras de casa sin aliento.",
+    ],
+  },
+  {
+    heading: "El plan",
+    paragraphs: [
+      "Diseñamos un programa realista: tres sesiones semanales, ninguna de más de 50 minutos, encajadas en su agenda antes de la jornada laboral. Nada de dietas imposibles —solo pautas claras y sostenibles que podía seguir incluso comiendo fuera de casa.",
+      "El foco de los primeros dos meses fue la técnica y la constancia. Antes de buscar intensidad, construimos una base sólida y un hábito que no dependiera de la motivación puntual.",
+    ],
+  },
+  {
+    heading: "La transformación",
+    paragraphs: [
+      "A partir del tercer mes, los cambios se hicieron visibles. La ropa empezó a quedarle distinta, los compañeros de trabajo le preguntaban qué estaba haciendo y, sobre todo, recuperó energía para jugar al pádel con sus hijos los fines de semana.",
+      "Siete meses después, Carlos no solo había perdido 14 kilos: había recuperado la confianza y una relación completamente nueva con el ejercicio.",
+    ],
+  },
+];
+
+const lessons = [
+  "La constancia gana a la intensidad: tres sesiones bien hechas valen más que un mes de esfuerzo desordenado.",
+  "Un plan que encaja en tu agenda es un plan que se cumple. La logística importa tanto como el entrenamiento.",
+  "La técnica primero. Construir una base sólida evita lesiones y acelera los resultados a medio plazo.",
+  "El objetivo real nunca fue la báscula, sino recuperar la energía para vivir mejor.",
+];
+
+const related = [
+  { name: "María", href: "/resultados/maria-vuelve-a-entrenar" },
+  { name: "Javier", href: "/resultados/javier-recupera-su-energia" },
+];
+---
+
+<CaseStudyArticle
+  name="Carlos"
+  meta="Carlos · 48 · Director comercial"
+  title="Recuperó su forma y volvió a sentirse en control"
+  intro="Una historia de cómo recuperar el control del cuerpo —y de la energía— cuando creías que ya no había tiempo para ti."
+  heroImage={heroImg}
+  beforeImage={beforeImg}
+  afterImage={afterImg}
+  heroSrc={clientStoryImages.carlos.cover}
+  beforeSrc={clientStoryImages.carlos.before}
+  afterSrc={clientStoryImages.carlos.after}
+  quote="Pensaba que a mi edad y con mi trabajo ya no había nada que hacer. Hoy tengo más energía que hace diez años."
+  stats={stats}
+  story={story}
+  lessons={lessons}
+  related={related}
+  pageTitle="Carlos recupera su forma · Resultados · Ricardo Cobo"
+  pageDescription="Carlos, director comercial de 48 años, perdió 14 kg y recuperó su confianza y energía con el método de Ricardo Cobo. Una historia de transformación."
+/>

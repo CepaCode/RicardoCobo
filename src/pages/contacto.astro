@@ -1,0 +1,157 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EnquiryForm from "../components/EnquiryForm.astro";
+import VideoPlaceholder from "../components/VideoPlaceholder.astro";
+
+import portraitImg from "../assets/RicardoFront2.jpg";
+
+const faqs = [
+  {
+    q: "¿Qué incluye la valoración inicial?",
+    a: "Una conversación a fondo sobre tu objetivo, una valoración de tu nivel físico y de movilidad, y una propuesta clara de cómo podríamos trabajar juntos. Sin compromiso.",
+  },
+  {
+    q: "¿Necesito tener experiencia previa?",
+    a: "En absoluto. Trabajo con personas que llevan años sin entrenar y con otras que quieren dar un salto de nivel. Empezamos siempre desde donde tú estás.",
+  },
+  {
+    q: "¿Cuánto tiempo a la semana necesito?",
+    a: "La mayoría de mis clientes entrenan entre dos y cuatro veces por semana, en sesiones de 30 a 50 minutos. Lo ajustamos a tu agenda real.",
+  },
+  {
+    q: "¿Dónde se entrena?",
+    a: "Las sesiones se realizan en Santander, en un entorno preparado para entrenar con seguridad y total atención personalizada.",
+  },
+];
+---
+
+<BaseLayout
+  title="Contacto · Reserva tu valoración · Ricardo Cobo"
+  description="Reserva tu valoración personal con Ricardo Cobo, entrenador personal en Santander. Hablemos de tu objetivo y veamos si este enfoque encaja contigo."
+>
+  <!-- ============================ HERO ============================ -->
+  <section class="relative isolate overflow-hidden bg-navy pt-32">
+    <div class="pointer-events-none absolute -left-24 top-10 h-80 w-80 rounded-full bg-brand/30 blur-3xl"></div>
+    <div class="relative mx-auto max-w-7xl px-5 pb-12 pt-16 sm:px-8 lg:px-10 lg:pb-20 lg:pt-24">
+      <div class="max-w-3xl rc-rise">
+        <span class="eyebrow inline-flex items-center gap-2 text-brand-200">
+          <span class="h-px w-8 bg-brand-300"></span>
+          Contacto
+        </span>
+        <h1 class="mt-6 font-display text-5xl font-extrabold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
+          Empieza con una valoración personal
+        </h1>
+        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
+          Hablemos de tu objetivo y veamos si este enfoque encaja contigo. Una
+          conversación honesta, sin compromiso, para decidir el mejor punto de
+          partida.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== FORM + ASIDE ====================== -->
+  <section class="bg-mist">
+    <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <div class="grid items-start gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <!-- Form -->
+        <div class="rounded-3xl bg-white p-7 shadow-xl shadow-brand/5 ring-1 ring-haze sm:p-10">
+          <h2 class="font-display text-2xl font-bold text-navy">Solicita tu valoración</h2>
+          <p class="mb-7 mt-1.5 text-slate-blue">
+            Rellena el formulario y te responderé personalmente en menos de
+            24&nbsp;horas.
+          </p>
+          <EnquiryForm />
+        </div>
+
+        <!-- Aside -->
+        <div class="lg:sticky lg:top-28">
+          <!-- Auto-activates when /media/final-cta-training.mp4 is added to public/media -->
+          <VideoPlaceholder
+            fallbackImage={portraitImg}
+            alt="Ricardo Cobo, entrenador personal en Santander"
+            videoPath="/media/final-cta-training.mp4"
+            ratio="aspect-[4/5]"
+          />
+
+          <div class="mt-8 space-y-5">
+            <a
+              href="mailto:hola@ricardocobo.es"
+              class="flex items-center gap-4 rounded-2xl bg-white p-5 ring-1 ring-haze transition-all hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand/10 text-brand">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M4 6h16v12H4z" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="m4 7 8 6 8-6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span>
+                <span class="block text-sm text-slate-blue">Email</span>
+                <span class="block font-semibold text-navy">hola@ricardocobo.es</span>
+              </span>
+            </a>
+
+            <!-- TODO: reemplazar por el número real de WhatsApp de Ricardo -->
+            <a
+              href="https://wa.me/000000000000?text=Hola%20Ricardo%2C%20me%20gustar%C3%ADa%20reservar%20una%20valoraci%C3%B3n."
+              class="flex items-center gap-4 rounded-2xl bg-white p-5 ring-1 ring-haze transition-all hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand/10 text-brand">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.9-4.44 9.9-9.9S17.5 2 12.04 2zm0 18.06c-1.48 0-2.93-.4-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.16 8.16 0 01-1.26-4.34c0-4.54 3.7-8.23 8.24-8.23s8.23 3.69 8.23 8.23-3.69 8.2-8.23 8.2z" />
+                </svg>
+              </span>
+              <span>
+                <span class="block text-sm text-slate-blue">WhatsApp</span>
+                <span class="block font-semibold text-navy">Escríbeme directamente</span>
+              </span>
+            </a>
+
+            <div class="flex items-center gap-4 rounded-2xl bg-white p-5 ring-1 ring-haze">
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-brand/10 text-brand">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M12 21s7-5.5 7-11a7 7 0 10-14 0c0 5.5 7 11 7 11z" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg>
+              </span>
+              <span>
+                <span class="block text-sm text-slate-blue">Ubicación</span>
+                <span class="block font-semibold text-navy">Santander, Cantabria</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= FAQ ========================= -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-4xl px-5 py-20 sm:px-8 lg:py-28">
+      <div class="text-center">
+        <p class="eyebrow text-brand">Preguntas frecuentes</p>
+        <h2 class="mt-3 font-display text-3xl font-bold text-navy sm:text-4xl">
+          Antes de dar el paso
+        </h2>
+      </div>
+
+      <div class="mt-12 divide-y divide-haze">
+        {
+          faqs.map((f) => (
+            <details class="group py-6">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 text-lg font-semibold text-navy [&::-webkit-details-marker]:hidden">
+                {f.q}
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand transition-transform duration-300 group-open:rotate-45">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+                  </svg>
+                </span>
+              </summary>
+              <p class="mt-4 leading-relaxed text-slate-blue">{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

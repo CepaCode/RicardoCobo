@@ -1,0 +1,148 @@
+---
+// Premium sticky header with scroll-aware styling and mobile menu.
+import logo from "../assets/imgLogoRCExtendidoFuenteAzul.png";
+
+const navItems = [
+  { label: "Inicio", href: "/" },
+  { label: "Resultados", href: "/resultados" },
+  { label: "Método", href: "/metodo" },
+  { label: "Contacto", href: "/contacto" },
+];
+---
+
+<header
+  id="site-header"
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
+  data-state="top"
+>
+  <div
+    id="header-shell"
+    class="border-b border-transparent transition-all duration-500"
+  >
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-8 lg:px-10">
+      <!-- Brand -->
+      <a href="/" class="flex items-center gap-3" aria-label="Ricardo Cobo · Inicio">
+        <img
+          src={logo.src}
+          alt="Ricardo Cobo · Entrenamiento Personal"
+          class="h-9 w-auto sm:h-11"
+          width={logo.width}
+          height={logo.height}
+        />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden items-center gap-9 lg:flex" aria-label="Navegación principal">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="group relative text-sm font-semibold tracking-wide text-navy/80 transition-colors hover:text-brand"
+            >
+              {item.label}
+              <span class="absolute -bottom-1.5 left-0 h-0.5 w-0 bg-brand transition-all duration-300 group-hover:w-full" />
+            </a>
+          ))
+        }
+      </nav>
+
+      <!-- Desktop CTA -->
+      <a
+        href="/contacto"
+        class="hidden items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-xl hover:shadow-brand/30 lg:inline-flex"
+      >
+        Reservar valoración
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+
+      <!-- Mobile toggle -->
+      <button
+        id="menu-toggle"
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full text-navy transition-colors hover:bg-haze lg:hidden"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="pointer-events-none fixed inset-0 z-40 translate-y-[-12px] bg-navy/98 opacity-0 backdrop-blur-xl transition-all duration-400 lg:hidden"
+  >
+    <div class="flex h-full flex-col px-6 pb-10 pt-24">
+      <nav class="flex flex-col gap-1" aria-label="Navegación móvil">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="border-b border-white/10 py-5 font-display text-3xl font-bold text-white"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+      <a
+        href="/contacto"
+        class="mt-auto inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-4 text-base font-semibold text-brand"
+      >
+        Reservar valoración
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer so fixed header never overlaps page content baseline on tall hero pages -->
+
+<script is:inline>
+  (function () {
+    const header = document.getElementById("site-header");
+    const shell = document.getElementById("header-shell");
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+
+    const setSolid = (solid) => {
+      if (!shell) return;
+      if (solid) {
+        shell.classList.add("bg-white/85", "backdrop-blur-xl", "shadow-sm");
+        shell.classList.add("border-haze");
+        shell.classList.remove("border-transparent");
+      } else {
+        shell.classList.remove("bg-white/85", "backdrop-blur-xl", "shadow-sm", "border-haze");
+        shell.classList.add("border-transparent");
+      }
+    };
+
+    const onScroll = () => setSolid(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    let open = false;
+    const setMenu = (next) => {
+      open = next;
+      if (!menu || !toggle) return;
+      toggle.setAttribute("aria-expanded", String(open));
+      if (open) {
+        menu.classList.remove("pointer-events-none", "opacity-0", "translate-y-[-12px]");
+        menu.classList.add("opacity-100", "translate-y-0");
+        document.body.style.overflow = "hidden";
+      } else {
+        menu.classList.add("pointer-events-none", "opacity-0", "translate-y-[-12px]");
+        menu.classList.remove("opacity-100", "translate-y-0");
+        document.body.style.overflow = "";
+      }
+    };
+
+    toggle?.addEventListener("click", () => setMenu(!open));
+    menu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+  })();
+</script>

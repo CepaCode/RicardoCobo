@@ -1,0 +1,55 @@
+---
+/**
+ * QuoteSection
+ * ------------
+ * Large, editorial pull-quote band. Visually powerful, brand-blue.
+ */
+interface Props {
+  quote: string;
+  author?: string;
+  role?: string;
+  variant?: "brand" | "light";
+}
+
+const {
+  quote,
+  author = "Ricardo Cobo",
+  role = "Entrenador personal",
+  variant = "brand",
+} = Astro.props;
+
+const isBrand = variant === "brand";
+---
+
+<section
+  class={`relative overflow-hidden ${isBrand ? "bg-brand text-white" : "bg-mist text-navy"}`}
+>
+  <!-- Oversized decorative quotation mark -->
+  <span
+    class={`pointer-events-none absolute -left-2 top-2 select-none font-display text-[16rem] font-bold leading-none sm:text-[22rem] ${
+      isBrand ? "text-white/5" : "text-brand/5"
+    }`}
+    aria-hidden="true"
+  >
+    “
+  </span>
+
+  <div class="relative mx-auto max-w-5xl px-6 py-24 text-center sm:px-8 lg:py-32">
+    <blockquote>
+      <p
+        class="font-display text-3xl font-bold leading-[1.1] tracking-tight text-balance sm:text-5xl lg:text-6xl"
+      >
+        {quote}
+      </p>
+      <footer class="mt-10">
+        <div
+          class={`mx-auto mb-5 h-px w-16 ${isBrand ? "bg-white/40" : "bg-brand/40"}`}
+        ></div>
+        <cite class="not-italic">
+          <span class="block text-lg font-semibold">{author}</span>
+          <span class={`text-sm ${isBrand ? "text-brand-200" : "text-slate-blue"}`}>{role}</span>
+        </cite>
+      </footer>
+    </blockquote>
+  </div>
+</section>

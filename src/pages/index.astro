@@ -1,17 +1,323 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import VideoPlaceholder from "../components/VideoPlaceholder.astro";
+import ClientStoryCard from "../components/ClientStoryCard.astro";
+import QuoteSection from "../components/QuoteSection.astro";
+import FinalCTA from "../components/FinalCTA.astro";
 
+import heroImg from "../assets/RicardoHeroImage.png";
+import trainingImg from "../assets/RicardoWorkingOut.jpg";
+import trainingImg2 from "../assets/RicardoWorkingOut2.jpg";
+import parejaImg from "../assets/ParejaWorkingOut.jpg";
+
+const stories = [
+  {
+    index: "01",
+    image: trainingImg,
+    name: "Carlos",
+    meta: "Carlos · 48 · Director comercial",
+    headline: "Recuperó su forma y volvió a sentirse en control",
+    teaser:
+      "Perdió 14 kg, recuperó la confianza y hoy tiene energía de sobra para su familia y su trabajo.",
+    href: "/resultados/carlos-recupera-su-forma",
+  },
+  {
+    index: "02",
+    image: parejaImg,
+    name: "María",
+    meta: "María · 41 · Abogada",
+    headline: "Volvió a entrenar después de años parada",
+    teaser:
+      "Recuperó fuerza, movilidad y una relación sana con el ejercicio, sin obsesiones ni dietas extremas.",
+    href: "/resultados/maria-vuelve-a-entrenar",
+  },
+  {
+    index: "03",
+    image: trainingImg2,
+    name: "Javier",
+    meta: "Javier · 52 · Empresario",
+    headline: "Construyó un hábito que sobrevive a su agenda",
+    teaser:
+      "Entre viajes y reuniones, logró un sistema sostenible que mejoró su energía y su salud.",
+    href: "/resultados/javier-recupera-su-energia",
+  },
+];
+
+const audience = [
+  {
+    title: "Profesionales con agenda exigente",
+    body: "Directivos y personas con responsabilidad que necesitan resultados reales sin perder horas en el gimnasio.",
+  },
+  {
+    title: "Padres y madres con poco tiempo",
+    body: "Quieres cuidarte para estar bien con los tuyos, pero la vida familiar no deja mucho margen. Lo adaptamos a ti.",
+  },
+  {
+    title: "Quienes dejaron de entrenar",
+    body: "Hace meses —o años— que no entrenas. Empezamos desde donde estás, sin juicios y con un plan progresivo.",
+  },
+  {
+    title: "Objetivos realistas y duraderos",
+    body: "Salud, fuerza y una mejor imagen. Nada de promesas imposibles: un cambio que puedes mantener toda la vida.",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <!-- ============================ HERO ============================ -->
+  <section class="relative isolate min-h-[100svh] overflow-hidden bg-navy">
+    <!--
+      Hero background media. Drops in /media/hero-training.mp4 automatically.
+      To activate this video, place the file in public/media using the filename
+      shown in the overlay badge below. The shared [data-video-placeholder]
+      script (emitted by <VideoPlaceholder>) reveals the video when it can play
+      and hides it (showing the image) when the file is missing.
+    -->
+    <div class="absolute inset-0" data-video-placeholder data-state="loading" data-fallback-delay="1500">
+      <img
+        src={heroImg.src}
+        alt="Ricardo Cobo, entrenador personal en Santander"
+        width={heroImg.width}
+        height={heroImg.height}
+        class="absolute inset-0 h-full w-full object-cover object-top opacity-0 transition-opacity duration-700 data-[shown]:opacity-100"
+        fetchpriority="high"
+      />
+      <video
+        class="absolute inset-0 h-full w-full object-cover object-top opacity-0 transition-opacity duration-700 data-[ready]:opacity-100"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster={heroImg.src}
+        aria-label="Ricardo Cobo entrenando"
+      >
+        <source src="/media/hero-training.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <!-- Brand-blue cinematic wash (keeps identity blue, not black) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-navy/80 via-brand/50 to-navy/92"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/30 to-transparent"></div>
+
+    <div class="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-5 pb-16 pt-32 sm:px-8 lg:px-10 lg:pb-24">
+      <div class="max-w-4xl rc-rise">
+        <span class="eyebrow inline-flex items-center gap-2 text-brand-200">
+          <span class="h-px w-8 bg-brand-300"></span>
+          Entrenamiento personal · Santander
+        </span>
+
+        <h1 class="mt-6 font-display font-extrabold uppercase leading-[0.92] tracking-tight text-white text-mega">
+          Recupera tu<br />mejor forma física
+        </h1>
+
+        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">
+          Entrenamiento personal en Santander para profesionales con poco tiempo
+          que quieren verse mejor, sentirse más fuertes y cuidar su salud sin
+          vivir en el gimnasio.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a
+            href="/contacto"
+            class="group inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-base font-semibold text-brand shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-50"
+          >
+            Reservar valoración
+            <svg class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a
+            href="/metodo"
+            class="inline-flex items-center gap-2.5 rounded-full border border-white/40 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10"
+          >
+            Ver método
+          </a>
+        </div>
+
+        <p class="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-white/70">
+          <span class="font-semibold text-white">+20 años de experiencia</span>
+          <span class="text-brand-300">·</span>
+          <span>entrenamiento 100% personalizado</span>
+        </p>
+      </div>
+
+      <!-- Floating "video pendiente" affordance on hero -->
+      <div class="pointer-events-none absolute bottom-8 right-5 hidden sm:right-8 lg:block lg:right-10">
+        <span class="inline-flex items-center gap-2 rounded-full bg-navy/60 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-white ring-1 ring-white/15 backdrop-blur-md">
+          <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-300"></span>
+          Video pendiente · /media/hero-training.mp4
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= SOCIAL PROOF ======================= -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+      <div class="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+        <div>
+          <p class="eyebrow text-brand">Por qué funciona</p>
+          <h2 class="mt-4 max-w-md font-display text-3xl font-bold leading-tight text-navy sm:text-4xl">
+            Experiencia real. Método probado. Resultados que permanecen.
+          </h2>
+          <p class="mt-5 max-w-md text-lg leading-relaxed text-slate-blue">
+            Más de dos décadas acompañando a personas que pensaban que “ya no
+            tenían tiempo” para cuidarse. La diferencia no está en entrenar más
+            duro, sino en entrenar con criterio.
+          </p>
+        </div>
+
+        <dl class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+          {
+            [
+              { n: "+20", l: "años de experiencia", s: "perfeccionando un método propio" },
+              { n: "+500", l: "personas entrenadas", s: "de todas las edades y niveles" },
+              { n: "100%", l: "entrenamiento personalizado", s: "ningún plan es igual a otro" },
+            ].map((stat) => (
+              <div class="rounded-3xl bg-mist p-7 ring-1 ring-haze transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10">
+                <dt class="font-display text-5xl font-extrabold tracking-tight text-brand sm:text-6xl">
+                  {stat.n}
+                </dt>
+                <dd class="mt-3">
+                  <span class="block font-semibold text-navy">{stat.l}</span>
+                  <span class="mt-1 block text-sm text-slate-blue">{stat.s}</span>
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CLIENT STORIES ===================== -->
+  <section class="bg-navy">
+    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-2xl">
+          <p class="eyebrow text-brand-200">Resultados</p>
+          <h2 class="mt-5 font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+            Historias reales.<br />Cambios extraordinarios.
+          </h2>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+            No vendemos transformaciones imposibles. Acompañamos a personas
+            normales —con trabajos exigentes y poco tiempo— a conseguir el cuerpo,
+            la energía y la confianza que creían perdidos.
+          </p>
+        </div>
+        <a
+          href="/resultados"
+          class="group inline-flex shrink-0 items-center gap-2 text-base font-semibold text-brand-200 transition-all hover:gap-3.5 hover:text-white"
+        >
+          Ver todas las historias
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {stories.map((s) => <ClientStoryCard {...s} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= QUOTE ========================= -->
+  <QuoteSection
+    quote="No se trata de entrenar más. Se trata de entrenar mejor."
+    author="Ricardo Cobo"
+    role="Entrenador personal · Santander"
+  />
+
+  <!-- ====================== TRAINING ====================== -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="order-2 lg:order-1">
+          <p class="eyebrow text-brand">El entrenamiento</p>
+          <h2 class="mt-4 font-display text-3xl font-bold leading-tight text-navy sm:text-4xl lg:text-5xl">
+            Cada sesión cuenta. Cada repetición tiene un propósito.
+          </h2>
+          <p class="mt-6 text-lg leading-relaxed text-slate-blue">
+            El verdadero progreso no llega del esfuerzo desordenado, sino de la
+            técnica precisa, la constancia y una progresión bien medida. Así se
+            construye un cuerpo fuerte que dura.
+          </p>
+
+          <ul class="mt-9 space-y-5">
+            {
+              [
+                { t: "Técnica impecable", d: "Cada ejercicio supervisado para que entrenes seguro y aproveches cada minuto." },
+                { t: "Constancia inteligente", d: "Un plan que encaja en tu vida real, no uno que te obliga a reorganizarla." },
+                { t: "Progresión medible", d: "Avances visibles y registrados, semana a semana, para mantener la motivación." },
+                { t: "Resultados sostenibles", d: "Hábitos que permanecen cuando termina el programa. Esa es la meta." },
+              ].map((item) => (
+                <li class="flex gap-4">
+                  <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-white">
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+                      <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  <div>
+                    <h3 class="font-semibold text-navy">{item.t}</h3>
+                    <p class="mt-1 text-slate-blue">{item.d}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <!-- Auto-activates when /media/training-action.mp4 is added to public/media -->
+          <VideoPlaceholder
+            fallbackImage={trainingImg2}
+            alt="Ricardo Cobo supervisando un entrenamiento de fuerza"
+            videoPath="/media/training-action.mp4"
+            ratio="aspect-[4/5]"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== AUDIENCE ====================== -->
+  <section class="bg-mist">
+    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+      <div class="max-w-3xl">
+        <p class="eyebrow text-brand">Para quién es</p>
+        <h2 class="mt-4 font-display text-3xl font-bold leading-[1.1] text-navy sm:text-4xl lg:text-5xl">
+          Para personas que quieren cuidarse sin reorganizar toda su vida
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-slate-blue">
+          Si te reconoces aquí, este enfoque está pensado exactamente para ti.
+        </p>
+      </div>
+
+      <div class="mt-14 grid gap-6 sm:grid-cols-2">
+        {
+          audience.map((a) => (
+            <div class="group rounded-3xl bg-white p-8 ring-1 ring-haze transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/10">
+              <h3 class="font-display text-xl font-bold text-navy">{a.title}</h3>
+              <p class="mt-3 leading-relaxed text-slate-blue">{a.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-14 overflow-hidden rounded-3xl">
+        <img
+          src={parejaImg.src}
+          alt="Pareja entrenando con Ricardo Cobo"
+          width={parejaImg.width}
+          height={parejaImg.height}
+          class="h-72 w-full object-cover sm:h-96"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== FINAL CTA ====================== -->
+  <FinalCTA />
+</BaseLayout>
