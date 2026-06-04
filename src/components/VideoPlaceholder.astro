@@ -17,8 +17,9 @@ import type { ImageMetadata } from "astro";
  *     the fallback image + overlay remain visible and the section still looks
  *     good. See the inline <script> below.
  *   - The "VIDEO PENDIENTE" label is derived automatically from `videoPath`
- *     unless an explicit `label` is provided. It stays visible but subtle while
- *     prototyping, and is dimmed once a real video is actually playing.
+ *     unless an explicit `label` is provided. The text overlays can be hidden
+ *     by default via `showOverlayInfo={false}` and re-enabled later without
+ *     touching the rest of the component.
  *
  * This component is generic: it works for ALL current and future placeholders
  * just by passing a different `videoPath`. No per-file logic anywhere.
@@ -28,9 +29,10 @@ interface Props {
   fallbackImage: ImageMetadata; // shown behind the video / when it's missing
   alt: string;
   label?: string; // optional override; otherwise derived from videoPath
+  showOverlayInfo?: boolean;
   class?: string;
   ratio?: string; // Tailwind aspect class, e.g. "aspect-[16/9]"
-  rounded?: string; // Tailwind rounding class
+  rounded?: string; // Tailwind rounding class (default rounded-2xl)
   overlay?: "light" | "dark";
 }
 
@@ -39,9 +41,10 @@ const {
   fallbackImage,
   alt,
   label,
+  showOverlayInfo = false,
   class: extra = "",
   ratio = "aspect-[16/9]",
-  rounded = "rounded-3xl",
+  rounded = "rounded-2xl",
   overlay = "dark",
 } = Astro.props;
 
@@ -92,6 +95,9 @@ const overlayClass =
     class={`absolute inset-0 bg-gradient-to-t transition-opacity duration-700 group-data-[state=playing]:opacity-40 ${overlayClass}`}
   ></div>
 
+  <!-- Persistent brand-blue identity tint — ties all videos to the site palette. -->
+  <div class="absolute inset-0 bg-brand/15 mix-blend-multiply"></div>
+
   <!-- Play affordance: hidden once a real video is playing. -->
   <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-data-[state=playing]:opacity-0">
     <span
@@ -103,27 +109,31 @@ const overlayClass =
     </span>
   </div>
 
-  <!--
-    "VIDEO PENDIENTE" overlay label. Stays visible but subtle while prototyping;
-    fades down once a real video is playing. Text derived from `videoPath`.
-  -->
-  <div class="absolute left-4 top-4 transition-opacity duration-500 group-data-[state=playing]:opacity-60 sm:left-5 sm:top-5">
-    <span
-      class="inline-flex items-center gap-2 rounded-full bg-navy/70 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-white ring-1 ring-white/15 backdrop-blur-sm"
-    >
-      <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-300"></span>
-      Video pendiente
-    </span>
-  </div>
+  {showOverlayInfo && (
+    <>
+      <!--
+        "VIDEO PENDIENTE" overlay label. Stays visible but subtle while prototyping;
+        fades down once a real video is playing. Text derived from `videoPath`.
+      -->
+      <div class="absolute left-4 top-4 transition-opacity duration-500 group-data-[state=playing]:opacity-60 sm:left-5 sm:top-5">
+        <span
+          class="inline-flex items-center gap-2 rounded-full bg-navy/70 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-white ring-1 ring-white/15 backdrop-blur-sm"
+        >
+          <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-300"></span>
+          Video pendiente
+        </span>
+      </div>
 
-  <!-- Target file path (the filename to drop into /public/media to activate). -->
-  <div class="absolute bottom-4 left-4 right-4 transition-opacity duration-500 group-data-[state=playing]:opacity-60 sm:bottom-5 sm:left-5">
-    <code
-      class="inline-block max-w-full truncate rounded-lg bg-navy/65 px-3 py-1.5 font-mono text-xs text-brand-100 ring-1 ring-white/10 backdrop-blur-sm"
-    >
-      {overlayLabel}
-    </code>
-  </div>
+      <!-- Target file path (the filename to drop into /public/media to activate). -->
+      <div class="absolute bottom-4 left-4 right-4 transition-opacity duration-500 group-data-[state=playing]:opacity-60 sm:bottom-5 sm:left-5">
+        <code
+          class="inline-block max-w-full truncate rounded-lg bg-navy/65 px-3 py-1.5 font-mono text-xs text-brand-100 ring-1 ring-white/10 backdrop-blur-sm"
+        >
+          {overlayLabel}
+        </code>
+      </div>
+    </>
+  )}
 </div>
 
 <script>

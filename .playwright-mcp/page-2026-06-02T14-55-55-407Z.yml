@@ -1,0 +1,248 @@
+- generic [active] [ref=e1]:
+  - link "Saltar al contenido" [ref=e2] [cursor=pointer]:
+    - /url: "#contenido"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Ricardo Cobo · Inicio" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Ricardo Cobo · Entrenamiento Personal" [ref=e7]
+      - navigation "Navegación principal" [ref=e8]:
+        - link "Inicio" [ref=e9] [cursor=pointer]:
+          - /url: /
+          - text: Inicio
+        - link "Resultados" [ref=e10] [cursor=pointer]:
+          - /url: /resultados
+          - text: Resultados
+        - link "Método" [ref=e11] [cursor=pointer]:
+          - /url: /metodo
+          - text: Método
+        - link "Contacto" [ref=e12] [cursor=pointer]:
+          - /url: /contacto
+          - text: Contacto
+      - link "Reservar valoración" [ref=e13] [cursor=pointer]:
+        - /url: /contacto
+        - text: Reservar valoración
+        - img [ref=e14]
+  - main [ref=e16]:
+    - generic [ref=e17]:
+      - img "Ricardo Cobo durante una sesión de valoración" [ref=e18]
+      - generic [ref=e21]:
+        - generic [ref=e22]: El método
+        - heading "Un sistema, cuatro fases, resultados que duran" [level=1] [ref=e24]
+        - paragraph [ref=e25]: No improviso. Cada persona avanza por un proceso claro y probado, donde cada fase prepara la siguiente. Así convertimos el esfuerzo en resultados reales y sostenibles.
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - paragraph [ref=e30]: Todo empieza aquí
+        - heading "La valoración lo cambia todo" [level=2] [ref=e31]
+        - paragraph [ref=e32]: Antes de proponerte nada, dedico tiempo a entenderte. Tu historia, tus lesiones, tu nivel de energía, tu agenda real. Esa primera sesión es la base sobre la que se construye todo lo demás —y la razón por la que el plan funciona desde el primer día.
+        - link "Reservar mi valoración" [ref=e33] [cursor=pointer]:
+          - /url: /contacto
+          - text: Reservar mi valoración
+          - img [ref=e34]
+      - generic [ref=e37]:
+        - img "Sesión de valoración con Ricardo Cobo" [ref=e38]
+        - generic "Sesión de valoración con Ricardo Cobo" [ref=e39]
+        - img [ref=e44]
+        - generic [ref=e47]: Video pendiente
+        - code [ref=e50]: /media/assessment-session.mp4
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: Las cuatro fases
+        - heading "Del primer día a tu mejor versión" [level=2] [ref=e55]
+      - generic [ref=e56]:
+        - article [ref=e57]:
+          - generic [ref=e58]: "01"
+          - generic [ref=e59]:
+            - paragraph [ref=e60]: Entender tu punto de partida
+            - heading "Valoración" [level=3] [ref=e61]
+            - paragraph [ref=e62]: Analizamos tu historia, tu nivel actual, tus limitaciones y tu objetivo real. Sin esta foto honesta, ningún plan funciona.
+          - list [ref=e63]:
+            - listitem [ref=e64]:
+              - img [ref=e66]
+              - generic [ref=e68]: Entrevista y objetivos
+            - listitem [ref=e69]:
+              - img [ref=e71]
+              - generic [ref=e73]: Valoración física y de movilidad
+            - listitem [ref=e74]:
+              - img [ref=e76]
+              - generic [ref=e78]: Análisis de hábitos y agenda
+        - article [ref=e79]:
+          - generic [ref=e80]: "02"
+          - generic [ref=e81]:
+            - paragraph [ref=e82]: Diseñado solo para ti
+            - heading "Plan personalizado" [level=3] [ref=e83]
+            - paragraph [ref=e84]: "Construyo un programa a medida de tu cuerpo, tu tiempo y tus metas. Nada genérico: cada decisión tiene un porqué."
+          - list [ref=e85]:
+            - listitem [ref=e86]:
+              - img [ref=e88]
+              - generic [ref=e90]: Programa de entrenamiento propio
+            - listitem [ref=e91]:
+              - img [ref=e93]
+              - generic [ref=e95]: Pautas de nutrición realistas
+            - listitem [ref=e96]:
+              - img [ref=e98]
+              - generic [ref=e100]: Adaptado a tu disponibilidad
+        - article [ref=e101]:
+          - generic [ref=e102]: "03"
+          - generic [ref=e103]:
+            - paragraph [ref=e104]: Técnica y seguridad en cada sesión
+            - heading "Entrenamiento supervisado" [level=3] [ref=e105]
+            - paragraph [ref=e106]: Entrenas conmigo a tu lado, corrigiendo técnica y ajustando cargas. Aprovechas cada minuto y evitas lesiones.
+          - list [ref=e107]:
+            - listitem [ref=e108]:
+              - img [ref=e110]
+              - generic [ref=e112]: Supervisión directa
+            - listitem [ref=e113]:
+              - img [ref=e115]
+              - generic [ref=e117]: Corrección técnica continua
+            - listitem [ref=e118]:
+              - img [ref=e120]
+              - generic [ref=e122]: Intensidad ajustada a cada día
+        - article [ref=e123]:
+          - generic [ref=e124]: "04"
+          - generic [ref=e125]:
+            - paragraph [ref=e126]: Resultados que permanecen
+            - heading "Progreso sostenible" [level=3] [ref=e127]
+            - paragraph [ref=e128]: Medimos, ajustamos y consolidamos hábitos que duran cuando termina el programa. El objetivo es tu autonomía.
+          - list [ref=e129]:
+            - listitem [ref=e130]:
+              - img [ref=e132]
+              - generic [ref=e134]: Seguimiento medible
+            - listitem [ref=e135]:
+              - img [ref=e137]
+              - generic [ref=e139]: Reajustes periódicos
+            - listitem [ref=e140]:
+              - img [ref=e142]
+              - generic [ref=e144]: Hábitos para toda la vida
+    - generic [ref=e145]:
+      - generic: “
+      - blockquote [ref=e147]:
+        - paragraph [ref=e148]: El método no es entrenar duro un mes. Es construir algo que dure toda la vida.
+        - generic [ref=e151]:
+          - generic [ref=e152]: Ricardo Cobo
+          - text: Entrenador personal · Santander
+    - generic [ref=e155]:
+      - img "Entrenamiento supervisado con Ricardo Cobo" [ref=e157]
+      - generic [ref=e158]:
+        - paragraph [ref=e159]: Por qué este método
+        - heading "Menos ruido, más resultados" [level=2] [ref=e160]
+        - paragraph [ref=e161]: "La industria del fitness vive de la complejidad y de las promesas imposibles. Mi trabajo es justo lo contrario: simplificar, priorizar y acompañarte para que cada semana estés un poco mejor que la anterior."
+        - list [ref=e162]:
+          - listitem [ref=e163]:
+            - generic [ref=e165]: Sin planes genéricos descargados de internet
+          - listitem [ref=e166]:
+            - generic [ref=e168]: Sin dietas extremas que no puedes mantener
+          - listitem [ref=e169]:
+            - generic [ref=e171]: "Sin entrenar por entrenar: cada sesión tiene objetivo"
+          - listitem [ref=e172]:
+            - generic [ref=e174]: Con un acompañamiento cercano y profesional
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - paragraph [ref=e179]: Empieza aquí
+        - heading "Empieza con una valoración personal" [level=2] [ref=e180]:
+          - text: Empieza con una
+          - text: valoración personal
+        - paragraph [ref=e181]: Hablemos de tu objetivo y veamos si este enfoque encaja contigo. Una conversación honesta, sin compromiso, para decidir el mejor punto de partida.
+        - generic [ref=e183]:
+          - img "Ricardo Cobo entrenando a un cliente" [ref=e184]
+          - generic "Ricardo Cobo entrenando a un cliente" [ref=e185]
+          - img [ref=e190]
+          - generic [ref=e193]: Video pendiente
+          - code [ref=e196]: /media/final-cta-training.mp4
+        - generic [ref=e197]:
+          - generic [ref=e198]:
+            - term [ref=e199]: "+20"
+            - definition [ref=e200]: años de experiencia
+          - generic [ref=e201]:
+            - term [ref=e202]: "+500"
+            - definition [ref=e203]: personas entrenadas
+          - generic [ref=e204]:
+            - term [ref=e205]: 100%
+            - definition [ref=e206]: personalizado
+      - generic [ref=e207]:
+        - heading "Solicita tu valoración" [level=3] [ref=e208]
+        - paragraph [ref=e209]: Te responderé personalmente en menos de 24 horas.
+        - generic [ref=e210]:
+          - generic [ref=e211]:
+            - generic [ref=e212]:
+              - generic [ref=e213]: Nombre
+              - textbox "Nombre" [ref=e214]:
+                - /placeholder: Tu nombre
+            - generic [ref=e215]:
+              - generic [ref=e216]: Email
+              - textbox "Email" [ref=e217]:
+                - /placeholder: tu@email.com
+          - generic [ref=e218]:
+            - generic [ref=e219]:
+              - generic [ref=e220]: Teléfono
+              - textbox "Teléfono" [ref=e221]:
+                - /placeholder: +34 600 000 000
+            - generic [ref=e222]:
+              - generic [ref=e223]: Objetivo principal
+              - combobox "Objetivo principal" [ref=e224]:
+                - option "Perder peso y grasa corporal" [selected]
+                - option "Ganar fuerza y tono muscular"
+                - option "Recuperar el hábito de entrenar"
+                - option "Mejorar energía y salud general"
+                - option "Prepararme para un objetivo concreto"
+                - option "Aún no lo tengo claro"
+          - generic [ref=e225]:
+            - generic [ref=e226]: Mensaje
+            - textbox "Mensaje" [ref=e227]:
+              - /placeholder: Cuéntame brevemente tu situación y qué te gustaría conseguir.
+          - generic [ref=e228]:
+            - button "Solicitar valoración" [ref=e229]:
+              - text: Solicitar valoración
+              - img [ref=e230]
+            - link "Contactar por WhatsApp" [ref=e232] [cursor=pointer]:
+              - /url: https://wa.me/000000000000?text=Hola%20Ricardo%2C%20me%20gustar%C3%ADa%20reservar%20una%20valoraci%C3%B3n.
+              - img [ref=e233]
+              - text: Contactar por WhatsApp
+          - paragraph [ref=e235]: Tus datos solo se usarán para responderte sobre la valoración. Sin compromiso.
+  - contentinfo [ref=e236]:
+    - generic [ref=e237]:
+      - generic [ref=e238]:
+        - generic [ref=e239]:
+          - img "Ricardo Cobo · Entrenamiento Personal" [ref=e240]
+          - paragraph [ref=e241]: Entrenamiento personal de alto nivel en Santander. Resultados reales, sostenibles y diseñados para personas con una vida exigente.
+        - navigation "Navegación del pie" [ref=e242]:
+          - heading "Navegación" [level=2] [ref=e243]
+          - list [ref=e244]:
+            - listitem [ref=e245]:
+              - link "Inicio" [ref=e246] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e247]:
+              - link "Resultados" [ref=e248] [cursor=pointer]:
+                - /url: /resultados
+            - listitem [ref=e249]:
+              - link "Método" [ref=e250] [cursor=pointer]:
+                - /url: /metodo
+            - listitem [ref=e251]:
+              - link "Contacto" [ref=e252] [cursor=pointer]:
+                - /url: /contacto
+        - generic [ref=e253]:
+          - heading "Contacto" [level=2] [ref=e254]
+          - list [ref=e255]:
+            - listitem [ref=e256]: Santander, Cantabria
+            - listitem [ref=e257]:
+              - link "hola@ricardocobo.es" [ref=e258] [cursor=pointer]:
+                - /url: mailto:hola@ricardocobo.es
+            - listitem [ref=e259]:
+              - link "WhatsApp" [ref=e260] [cursor=pointer]:
+                - /url: https://wa.me/000000000000
+      - generic [ref=e261]:
+        - paragraph [ref=e262]: © 2026 Ricardo Cobo · Entrenamiento Personal
+        - paragraph [ref=e263]: Prototipo de presentación · contenidos e imágenes de muestra
+  - generic [ref=e266]:
+    - button "Menu" [ref=e267]:
+      - img [ref=e269]
+      - generic: Menu
+    - button "Inspect" [ref=e273]:
+      - img [ref=e275]
+      - generic: Inspect
+    - button "Audit" [ref=e277]:
+      - img [ref=e279]
+      - generic: Audit
+    - button "Settings" [ref=e282]:
+      - img [ref=e284]
+      - generic: Settings

@@ -22,19 +22,19 @@
  */
 export const clientStoryImages = {
   carlos: {
-    cover: "/media/client-stories/carlos-cover.jpg",
-    before: "/media/client-stories/carlos-before.jpg",
-    after: "/media/client-stories/carlos-after.jpg",
+    cover: "/media/client-stories/carlos-cover.png",
+    before: "/media/client-stories/carlos-before.png",
+    after: "/media/client-stories/carlos-after.png",
   },
   maria: {
-    cover: "/media/client-stories/maria-cover.jpg",
-    before: "/media/client-stories/maria-before.jpg",
-    after: "/media/client-stories/maria-after.jpg",
+    cover: "/media/client-stories/maria-cover.png",
+    before: "/media/client-stories/maria-before.png",
+    after: "/media/client-stories/maria-after.png",
   },
   javier: {
-    cover: "/media/client-stories/javier-cover.jpg",
-    before: "/media/client-stories/javier-before.jpg",
-    after: "/media/client-stories/javier-after.jpg",
+    cover: "/media/client-stories/javier-cover.png",
+    before: "/media/client-stories/javier-before.png",
+    after: "/media/client-stories/javier-after.png",
   },
 } as const;
 

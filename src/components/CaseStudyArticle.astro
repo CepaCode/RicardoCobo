@@ -1,7 +1,6 @@
 ---
 import type { ImageMetadata } from "astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import VideoPlaceholder from "./VideoPlaceholder.astro";
 import FinalCTA from "./FinalCTA.astro";
 
 /**
@@ -38,9 +37,6 @@ interface Props {
   heroSrc?: string;
   beforeSrc?: string;
   afterSrc?: string;
-  // Tailwind object-position for the before/after photos. Defaults to center
-  // crop; set to e.g. "object-top" when the subject's head is otherwise cut off.
-  framePosition?: string;
   quote: string;
   stats: Stat[];
   story: StorySection[];
@@ -61,7 +57,6 @@ const {
   heroSrc,
   beforeSrc,
   afterSrc,
-  framePosition = "",
   quote,
   stats,
   story,
@@ -83,7 +78,8 @@ const {
         alt={`${name} — transformación con Ricardo Cobo`}
         width={heroImage.width}
         height={heroImage.height}
-        class="absolute inset-0 h-full w-full object-cover object-center opacity-45"
+        class="absolute inset-0 h-full w-full object-cover opacity-45"
+        style="object-position: center 20%"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/60"></div>
 
@@ -144,7 +140,7 @@ const {
               alt={`${name} antes del programa`}
               width={beforeImage.width}
               height={beforeImage.height}
-              class={`aspect-[3/4] w-full object-cover ${framePosition}`}
+              class="aspect-[3/4] w-full object-cover object-top"
               loading="lazy"
             />
             <figcaption class="absolute left-5 top-5 rounded-full bg-navy/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white ring-1 ring-white/15 backdrop-blur-sm">
@@ -159,7 +155,7 @@ const {
               alt={`${name} después del programa`}
               width={afterImage.width}
               height={afterImage.height}
-              class={`aspect-[3/4] w-full object-cover ${framePosition}`}
+              class="aspect-[3/4] w-full object-cover object-top"
               loading="lazy"
             />
             <figcaption class="absolute left-5 top-5 rounded-full bg-brand px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white ring-1 ring-white/15 backdrop-blur-sm">
@@ -194,25 +190,6 @@ const {
             </div>
           ))
         }
-      </div>
-    </section>
-
-    <!-- ==================== RESULTS VIDEO ==================== -->
-    <section class="bg-mist">
-      <div class="mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:py-28">
-        <div class="mb-8 text-center">
-          <p class="eyebrow text-brand">En sus palabras</p>
-          <h2 class="mt-3 font-display text-3xl font-bold text-navy sm:text-4xl">
-            El testimonio de {name}
-          </h2>
-        </div>
-        <!-- Auto-activates when /media/client-results.mp4 is added to public/media -->
-        <VideoPlaceholder
-          fallbackImage={heroImage}
-          alt={`${name} compartiendo su experiencia`}
-          videoPath="/media/client-results.mp4"
-          ratio="aspect-[16/9]"
-        />
       </div>
     </section>
 

@@ -1,0 +1,224 @@
+- generic [active] [ref=e1]:
+  - link "Saltar al contenido" [ref=e2] [cursor=pointer]:
+    - /url: "#contenido"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Ricardo Cobo · Inicio" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Ricardo Cobo · Entrenamiento Personal" [ref=e7]
+      - navigation "Navegación principal" [ref=e8]:
+        - link "Inicio" [ref=e9] [cursor=pointer]:
+          - /url: /
+          - text: Inicio
+        - link "Resultados" [ref=e10] [cursor=pointer]:
+          - /url: /resultados
+          - text: Resultados
+        - link "Método" [ref=e11] [cursor=pointer]:
+          - /url: /metodo
+          - text: Método
+        - link "Contacto" [ref=e12] [cursor=pointer]:
+          - /url: /contacto
+          - text: Contacto
+      - link "Reservar valoración" [ref=e13] [cursor=pointer]:
+        - /url: /contacto
+        - text: Reservar valoración
+        - img [ref=e14]
+  - main [ref=e16]:
+    - article [ref=e17]:
+      - generic [ref=e18]:
+        - img "Carlos — transformación con Ricardo Cobo" [ref=e19]
+        - generic [ref=e21]:
+          - link "Resultados" [ref=e22] [cursor=pointer]:
+            - /url: /resultados
+            - img [ref=e23]
+            - text: Resultados
+          - paragraph [ref=e25]: Carlos · 48 · Director comercial
+          - heading "Recuperó su forma y volvió a sentirse en control" [level=1] [ref=e26]
+          - paragraph [ref=e27]: Una historia de cómo recuperar el control del cuerpo —y de la energía— cuando creías que ya no había tiempo para ti.
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - term [ref=e32]: "-14 kg"
+          - definition [ref=e33]: de grasa en 7 meses
+        - generic [ref=e34]:
+          - term [ref=e35]: +9 kg
+          - definition [ref=e36]: de masa muscular estimada
+        - generic [ref=e37]:
+          - term [ref=e38]: 3 días
+          - definition [ref=e39]: de entrenamiento por semana
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - paragraph [ref=e43]: La transformación
+          - heading "Antes y después" [level=2] [ref=e44]
+          - paragraph [ref=e45]: El mismo cuerpo, meses de constancia de diferencia. Así cambió la forma física de Carlos a lo largo del programa.
+        - generic [ref=e46]:
+          - figure "Antes" [ref=e47]:
+            - img "Carlos antes del programa" [ref=e48]
+            - generic [ref=e49]: Antes
+          - figure "Después" [ref=e50]:
+            - img "Carlos después del programa" [ref=e51]
+            - generic [ref=e52]: Después
+      - generic [ref=e54]:
+        - text: “
+        - blockquote [ref=e55]: “Pensaba que a mi edad y con mi trabajo ya no había nada que hacer. Hoy tengo más energía que hace diez años.”
+        - paragraph [ref=e56]: Carlos · 48 · Director comercial
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - heading "El punto de partida" [level=2] [ref=e60]
+          - paragraph [ref=e61]: "Carlos llegó a la valoración convencido de que “ya no tenía remedio”. A sus 48 años, con un puesto de director comercial y dos hijos adolescentes, llevaba más de una década sin pisar un gimnasio. Las cenas con clientes, los viajes y el estrés habían dejado huella: cansancio constante, mala calidad de sueño y una sensación de haber perdido el control de su propio cuerpo."
+          - paragraph [ref=e62]: Lo que más le pesaba no era el número de la báscula, sino lo que sentía al mirarse al espejo y al subir las escaleras de casa sin aliento.
+        - generic [ref=e63]:
+          - heading "El plan" [level=2] [ref=e64]
+          - paragraph [ref=e65]: "Diseñamos un programa realista: tres sesiones semanales, ninguna de más de 50 minutos, encajadas en su agenda antes de la jornada laboral. Nada de dietas imposibles —solo pautas claras y sostenibles que podía seguir incluso comiendo fuera de casa."
+          - paragraph [ref=e66]: El foco de los primeros dos meses fue la técnica y la constancia. Antes de buscar intensidad, construimos una base sólida y un hábito que no dependiera de la motivación puntual.
+        - generic [ref=e67]:
+          - heading "La transformación" [level=2] [ref=e68]
+          - paragraph [ref=e69]: A partir del tercer mes, los cambios se hicieron visibles. La ropa empezó a quedarle distinta, los compañeros de trabajo le preguntaban qué estaba haciendo y, sobre todo, recuperó energía para jugar al pádel con sus hijos los fines de semana.
+          - paragraph [ref=e70]: "Siete meses después, Carlos no solo había perdido 14 kilos: había recuperado la confianza y una relación completamente nueva con el ejercicio."
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - paragraph [ref=e74]: En sus palabras
+          - heading "El testimonio de Carlos" [level=2] [ref=e75]
+        - generic [ref=e76]:
+          - img "Carlos compartiendo su experiencia" [ref=e77]
+          - generic "Carlos compartiendo su experiencia" [ref=e78]
+          - img [ref=e82]
+          - generic [ref=e85]: Video pendiente
+          - code [ref=e88]: /media/client-results.mp4
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - paragraph [ref=e92]: Lo que aprendimos
+          - heading "Las claves de este cambio" [level=2] [ref=e93]
+        - list [ref=e94]:
+          - listitem [ref=e95]:
+            - generic [ref=e96]: "01"
+            - paragraph [ref=e97]: "La constancia gana a la intensidad: tres sesiones bien hechas valen más que un mes de esfuerzo desordenado."
+          - listitem [ref=e98]:
+            - generic [ref=e99]: "02"
+            - paragraph [ref=e100]: Un plan que encaja en tu agenda es un plan que se cumple. La logística importa tanto como el entrenamiento.
+          - listitem [ref=e101]:
+            - generic [ref=e102]: "03"
+            - paragraph [ref=e103]: La técnica primero. Construir una base sólida evita lesiones y acelera los resultados a medio plazo.
+          - listitem [ref=e104]:
+            - generic [ref=e105]: "04"
+            - paragraph [ref=e106]: El objetivo real nunca fue la báscula, sino recuperar la energía para vivir mejor.
+      - generic [ref=e109]:
+        - heading "Otras historias" [level=2] [ref=e110]
+        - generic [ref=e111]:
+          - link "María" [ref=e112] [cursor=pointer]:
+            - /url: /resultados/maria-vuelve-a-entrenar
+            - text: María
+            - img [ref=e113]
+          - link "Javier" [ref=e115] [cursor=pointer]:
+            - /url: /resultados/javier-recupera-su-energia
+            - text: Javier
+            - img [ref=e116]
+    - generic [ref=e120]:
+      - generic [ref=e121]:
+        - paragraph [ref=e122]: Empieza aquí
+        - heading "Empieza con una valoración personal" [level=2] [ref=e123]:
+          - text: Empieza con una
+          - text: valoración personal
+        - paragraph [ref=e124]: Hablemos de tu objetivo y veamos si este enfoque encaja contigo. Una conversación honesta, sin compromiso, para decidir el mejor punto de partida.
+        - generic [ref=e126]:
+          - img "Ricardo Cobo entrenando a un cliente" [ref=e127]
+          - generic "Ricardo Cobo entrenando a un cliente" [ref=e128]
+          - img [ref=e132]
+          - generic [ref=e135]: Video pendiente
+          - code [ref=e138]: /media/final-cta-training.mp4
+        - generic [ref=e139]:
+          - generic [ref=e140]:
+            - term [ref=e141]: "+20"
+            - definition [ref=e142]: años de experiencia
+          - generic [ref=e143]:
+            - term [ref=e144]: "+500"
+            - definition [ref=e145]: personas entrenadas
+          - generic [ref=e146]:
+            - term [ref=e147]: 100%
+            - definition [ref=e148]: personalizado
+      - generic [ref=e149]:
+        - heading "Solicita tu valoración" [level=3] [ref=e150]
+        - paragraph [ref=e151]: Te responderé personalmente en menos de 24 horas.
+        - generic [ref=e152]:
+          - generic [ref=e153]:
+            - generic [ref=e154]:
+              - generic [ref=e155]: Nombre
+              - textbox "Nombre" [ref=e156]:
+                - /placeholder: Tu nombre
+            - generic [ref=e157]:
+              - generic [ref=e158]: Email
+              - textbox "Email" [ref=e159]:
+                - /placeholder: tu@email.com
+          - generic [ref=e160]:
+            - generic [ref=e161]:
+              - generic [ref=e162]: Teléfono
+              - textbox "Teléfono" [ref=e163]:
+                - /placeholder: +34 600 000 000
+            - generic [ref=e164]:
+              - generic [ref=e165]: Objetivo principal
+              - combobox "Objetivo principal" [ref=e166]:
+                - option "Perder peso y grasa corporal" [selected]
+                - option "Ganar fuerza y tono muscular"
+                - option "Recuperar el hábito de entrenar"
+                - option "Mejorar energía y salud general"
+                - option "Prepararme para un objetivo concreto"
+                - option "Aún no lo tengo claro"
+          - generic [ref=e167]:
+            - generic [ref=e168]: Mensaje
+            - textbox "Mensaje" [ref=e169]:
+              - /placeholder: Cuéntame brevemente tu situación y qué te gustaría conseguir.
+          - generic [ref=e170]:
+            - button "Solicitar valoración" [ref=e171]:
+              - text: Solicitar valoración
+              - img [ref=e172]
+            - link "Contactar por WhatsApp" [ref=e174] [cursor=pointer]:
+              - /url: https://wa.me/000000000000?text=Hola%20Ricardo%2C%20me%20gustar%C3%ADa%20reservar%20una%20valoraci%C3%B3n.
+              - img [ref=e175]
+              - text: Contactar por WhatsApp
+          - paragraph [ref=e177]: Tus datos solo se usarán para responderte sobre la valoración. Sin compromiso.
+  - contentinfo [ref=e178]:
+    - generic [ref=e179]:
+      - generic [ref=e180]:
+        - generic [ref=e181]:
+          - img "Ricardo Cobo · Entrenamiento Personal" [ref=e182]
+          - paragraph [ref=e183]: Entrenamiento personal de alto nivel en Santander. Resultados reales, sostenibles y diseñados para personas con una vida exigente.
+        - navigation "Navegación del pie" [ref=e184]:
+          - heading "Navegación" [level=2] [ref=e185]
+          - list [ref=e186]:
+            - listitem [ref=e187]:
+              - link "Inicio" [ref=e188] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e189]:
+              - link "Resultados" [ref=e190] [cursor=pointer]:
+                - /url: /resultados
+            - listitem [ref=e191]:
+              - link "Método" [ref=e192] [cursor=pointer]:
+                - /url: /metodo
+            - listitem [ref=e193]:
+              - link "Contacto" [ref=e194] [cursor=pointer]:
+                - /url: /contacto
+        - generic [ref=e195]:
+          - heading "Contacto" [level=2] [ref=e196]
+          - list [ref=e197]:
+            - listitem [ref=e198]: Santander, Cantabria
+            - listitem [ref=e199]:
+              - link "hola@ricardocobo.es" [ref=e200] [cursor=pointer]:
+                - /url: mailto:hola@ricardocobo.es
+            - listitem [ref=e201]:
+              - link "WhatsApp" [ref=e202] [cursor=pointer]:
+                - /url: https://wa.me/000000000000
+      - generic [ref=e203]:
+        - paragraph [ref=e204]: © 2026 Ricardo Cobo · Entrenamiento Personal
+        - paragraph [ref=e205]: Prototipo de presentación · contenidos e imágenes de muestra
+  - generic [ref=e208]:
+    - button "Menu" [ref=e209]:
+      - img [ref=e211]
+      - generic: Menu
+    - button "Inspect" [ref=e215]:
+      - img [ref=e217]
+      - generic: Inspect
+    - button "Audit" [ref=e219]:
+      - img [ref=e221]
+      - generic: Audit
+    - button "Settings" [ref=e224]:
+      - img [ref=e226]
+      - generic: Settings

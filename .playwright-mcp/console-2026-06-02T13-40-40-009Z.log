@@ -1,0 +1,76 @@
+[     265ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados:2663
+[     514ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  368704ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados:2672
+[  368842ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  370276ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2652
+[  370381ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/client-results.mp4:0
+[  370381ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  371389ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2661
+[  371400ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/client-results.mp4:0
+[  371400ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  373094ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados:2663
+[  373136ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  375693ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/javier-recupera-su-energia:2652
+[  375771ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/client-results.mp4:0
+[  375771ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  377853ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  377861ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  384468ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados:2663
+[  384575ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  384578ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  384582ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  386271ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2652
+[  386324ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/client-results.mp4:0
+[  386326ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  386387ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  386387ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  473465ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados:2672
+[  473480ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  473668ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  473868ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  474624ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/carlos-recupera-su-forma:2652
+[  474785ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/client-results.mp4:0
+[  474787ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  474820ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  474938ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  481314ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados:2663
+[  481361ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  481512ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  481528ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  482856ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2652
+[  482897ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/client-results.mp4:0
+[  482897ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  483067ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  483081ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  508959ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2661
+[  509111ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/client-results.mp4:0
+[  509158ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  509185ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  509193ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  518478ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2661
+[  518496ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/client-results.mp4:0
+[  518550ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  518552ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  518618ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  521273ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2645
+[  521318ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  521331ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/client-results.mp4:0
+[  521343ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  521382ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  548171ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2659
+[  548268ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  548283ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  548609ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  555745ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2659
+[  555876ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  555876ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  555999ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  677718ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2668
+[  677771ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[  677828ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[  677902ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:4323/media/final-cta-training.mp4:0
+[  742676ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2659
+[  762500ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/maria-vuelve-a-entrenar:2668
+[  815427ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/:2676
+[  828886ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/contacto:2678
+[  914676ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/contacto:2678

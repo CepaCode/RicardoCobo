@@ -1,0 +1,7 @@
+[     194ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/:2752
+[   71844ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/:2743
+[   81292ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2:0
+[   81300ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2:0
+[ 1854667ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/resultados/javier-recupera-su-energia:2715
+[ 1876790ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/metodo:2713
+[ 1909884ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ http://localhost:4323/contacto:2734

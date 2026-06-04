@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import VideoPlaceholder from "../components/VideoPlaceholder.astro";
 import ClientStoryCard from "../components/ClientStoryCard.astro";
+import { clientStoryImages } from "../data/clientStories";
 import QuoteSection from "../components/QuoteSection.astro";
 import FinalCTA from "../components/FinalCTA.astro";
 
@@ -14,6 +15,7 @@ const stories = [
   {
     index: "01",
     image: trainingImg,
+    imageSrc: clientStoryImages.carlos.cover,
     name: "Carlos",
     meta: "Carlos · 48 · Director comercial",
     headline: "Recuperó su forma y volvió a sentirse en control",
@@ -24,6 +26,7 @@ const stories = [
   {
     index: "02",
     image: parejaImg,
+    imageSrc: clientStoryImages.maria.cover,
     name: "María",
     meta: "María · 41 · Abogada",
     headline: "Volvió a entrenar después de años parada",
@@ -34,6 +37,7 @@ const stories = [
   {
     index: "03",
     image: trainingImg2,
+    imageSrc: clientStoryImages.javier.cover,
     name: "Javier",
     meta: "Javier · 52 · Empresario",
     headline: "Construyó un hábito que sobrevive a su agenda",
@@ -141,13 +145,6 @@ const audience = [
         </p>
       </div>
 
-      <!-- Floating "video pendiente" affordance on hero -->
-      <div class="pointer-events-none absolute bottom-8 right-5 hidden sm:right-8 lg:block lg:right-10">
-        <span class="inline-flex items-center gap-2 rounded-full bg-navy/60 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-white ring-1 ring-white/15 backdrop-blur-md">
-          <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-300"></span>
-          Video pendiente · /media/hero-training.mp4
-        </span>
-      </div>
     </div>
   </section>
 
@@ -305,16 +302,7 @@ const audience = [
         }
       </div>
 
-      <div class="mt-14 overflow-hidden rounded-3xl">
-        <img
-          src={parejaImg.src}
-          alt="Pareja entrenando con Ricardo Cobo"
-          width={parejaImg.width}
-          height={parejaImg.height}
-          class="h-72 w-full object-cover sm:h-96"
-          loading="lazy"
-        />
-      </div>
+
     </div>
   </section>
 

@@ -1,0 +1,288 @@
+- generic [active] [ref=e1]:
+  - link "Saltar al contenido" [ref=e2] [cursor=pointer]:
+    - /url: "#contenido"
+  - banner [ref=e3]:
+    - generic [ref=e5]:
+      - link "Ricardo Cobo · Inicio" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Ricardo Cobo · Entrenamiento Personal" [ref=e7]
+      - navigation "Navegación principal" [ref=e8]:
+        - link "Inicio" [ref=e9] [cursor=pointer]:
+          - /url: /
+          - text: Inicio
+        - link "Resultados" [ref=e10] [cursor=pointer]:
+          - /url: /resultados
+          - text: Resultados
+        - link "Método" [ref=e11] [cursor=pointer]:
+          - /url: /metodo
+          - text: Método
+        - link "Contacto" [ref=e12] [cursor=pointer]:
+          - /url: /contacto
+          - text: Contacto
+      - link "Reservar valoración" [ref=e13] [cursor=pointer]:
+        - /url: /contacto
+        - text: Reservar valoración
+        - img [ref=e14]
+  - main [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - img "Ricardo Cobo, entrenador personal en Santander" [ref=e19]
+        - generic "Ricardo Cobo entrenando" [ref=e20]
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: Entrenamiento personal · Santander
+          - heading "Recupera tu mejor forma física" [level=1] [ref=e27]:
+            - text: Recupera tu
+            - text: mejor forma física
+          - paragraph [ref=e28]: Entrenamiento personal en Santander para profesionales con poco tiempo que quieren verse mejor, sentirse más fuertes y cuidar su salud sin vivir en el gimnasio.
+          - generic [ref=e29]:
+            - link "Reservar valoración" [ref=e30] [cursor=pointer]:
+              - /url: /contacto
+              - text: Reservar valoración
+              - img [ref=e31]
+            - link "Ver método" [ref=e33] [cursor=pointer]:
+              - /url: /metodo
+          - paragraph [ref=e34]:
+            - generic [ref=e35]: +20 años de experiencia
+            - generic [ref=e36]: ·
+            - generic [ref=e37]: entrenamiento 100% personalizado
+        - generic:
+          - generic: Video pendiente · /media/hero-training.mp4
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - paragraph [ref=e42]: Por qué funciona
+        - heading "Experiencia real. Método probado. Resultados que permanecen." [level=2] [ref=e43]
+        - paragraph [ref=e44]: Más de dos décadas acompañando a personas que pensaban que “ya no tenían tiempo” para cuidarse. La diferencia no está en entrenar más duro, sino en entrenar con criterio.
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - term [ref=e47]: "+20"
+          - definition [ref=e48]:
+            - generic [ref=e49]: años de experiencia
+            - generic [ref=e50]: perfeccionando un método propio
+        - generic [ref=e51]:
+          - term [ref=e52]: "+500"
+          - definition [ref=e53]:
+            - generic [ref=e54]: personas entrenadas
+            - generic [ref=e55]: de todas las edades y niveles
+        - generic [ref=e56]:
+          - term [ref=e57]: 100%
+          - definition [ref=e58]:
+            - generic [ref=e59]: entrenamiento personalizado
+            - generic [ref=e60]: ningún plan es igual a otro
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - paragraph [ref=e65]: Resultados
+          - heading "Historias reales. Cambios extraordinarios." [level=2] [ref=e66]:
+            - text: Historias reales.
+            - text: Cambios extraordinarios.
+          - paragraph [ref=e67]: No vendemos transformaciones imposibles. Acompañamos a personas normales —con trabajos exigentes y poco tiempo— a conseguir el cuerpo, la energía y la confianza que creían perdidos.
+        - link "Ver todas las historias" [ref=e68] [cursor=pointer]:
+          - /url: /resultados
+          - text: Ver todas las historias
+          - img [ref=e69]
+      - generic [ref=e71]:
+        - link "Carlos — historia de transformación 01 Carlos · 48 · Director comercial Recuperó su forma y volvió a sentirse en control Perdió 14 kg, recuperó la confianza y hoy tiene energía de sobra para su familia y su trabajo. Ver la historia de Carlos" [ref=e72] [cursor=pointer]:
+          - /url: /resultados/carlos-recupera-su-forma
+          - generic [ref=e73]:
+            - img "Carlos — historia de transformación" [ref=e74]
+            - generic [ref=e76]: "01"
+            - generic [ref=e77]:
+              - paragraph [ref=e78]: Carlos · 48 · Director comercial
+              - heading "Recuperó su forma y volvió a sentirse en control" [level=3] [ref=e79]
+              - paragraph [ref=e80]: Perdió 14 kg, recuperó la confianza y hoy tiene energía de sobra para su familia y su trabajo.
+              - generic [ref=e81]:
+                - text: Ver la historia de Carlos
+                - img [ref=e82]
+        - link "María — historia de transformación 02 María · 41 · Abogada Volvió a entrenar después de años parada Recuperó fuerza, movilidad y una relación sana con el ejercicio, sin obsesiones ni dietas extremas. Ver la historia de María" [ref=e84] [cursor=pointer]:
+          - /url: /resultados/maria-vuelve-a-entrenar
+          - generic [ref=e85]:
+            - img "María — historia de transformación" [ref=e86]
+            - generic [ref=e88]: "02"
+            - generic [ref=e89]:
+              - paragraph [ref=e90]: María · 41 · Abogada
+              - heading "Volvió a entrenar después de años parada" [level=3] [ref=e91]
+              - paragraph [ref=e92]: Recuperó fuerza, movilidad y una relación sana con el ejercicio, sin obsesiones ni dietas extremas.
+              - generic [ref=e93]:
+                - text: Ver la historia de María
+                - img [ref=e94]
+        - link "Javier — historia de transformación 03 Javier · 52 · Empresario Construyó un hábito que sobrevive a su agenda Entre viajes y reuniones, logró un sistema sostenible que mejoró su energía y su salud. Ver la historia de Javier" [ref=e96] [cursor=pointer]:
+          - /url: /resultados/javier-recupera-su-energia
+          - generic [ref=e97]:
+            - img "Javier — historia de transformación" [ref=e98]
+            - generic [ref=e100]: "03"
+            - generic [ref=e101]:
+              - paragraph [ref=e102]: Javier · 52 · Empresario
+              - heading "Construyó un hábito que sobrevive a su agenda" [level=3] [ref=e103]
+              - paragraph [ref=e104]: Entre viajes y reuniones, logró un sistema sostenible que mejoró su energía y su salud.
+              - generic [ref=e105]:
+                - text: Ver la historia de Javier
+                - img [ref=e106]
+    - generic [ref=e108]:
+      - generic: “
+      - blockquote [ref=e110]:
+        - paragraph [ref=e111]: No se trata de entrenar más. Se trata de entrenar mejor.
+        - generic [ref=e114]:
+          - generic [ref=e115]: Ricardo Cobo
+          - text: Entrenador personal · Santander
+    - generic [ref=e118]:
+      - generic [ref=e119]:
+        - paragraph [ref=e120]: El entrenamiento
+        - heading "Cada sesión cuenta. Cada repetición tiene un propósito." [level=2] [ref=e121]
+        - paragraph [ref=e122]: El verdadero progreso no llega del esfuerzo desordenado, sino de la técnica precisa, la constancia y una progresión bien medida. Así se construye un cuerpo fuerte que dura.
+        - list [ref=e123]:
+          - listitem [ref=e124]:
+            - img [ref=e126]
+            - generic [ref=e128]:
+              - heading "Técnica impecable" [level=3] [ref=e129]
+              - paragraph [ref=e130]: Cada ejercicio supervisado para que entrenes seguro y aproveches cada minuto.
+          - listitem [ref=e131]:
+            - img [ref=e133]
+            - generic [ref=e135]:
+              - heading "Constancia inteligente" [level=3] [ref=e136]
+              - paragraph [ref=e137]: Un plan que encaja en tu vida real, no uno que te obliga a reorganizarla.
+          - listitem [ref=e138]:
+            - img [ref=e140]
+            - generic [ref=e142]:
+              - heading "Progresión medible" [level=3] [ref=e143]
+              - paragraph [ref=e144]: Avances visibles y registrados, semana a semana, para mantener la motivación.
+          - listitem [ref=e145]:
+            - img [ref=e147]
+            - generic [ref=e149]:
+              - heading "Resultados sostenibles" [level=3] [ref=e150]
+              - paragraph [ref=e151]: Hábitos que permanecen cuando termina el programa. Esa es la meta.
+      - generic [ref=e153]:
+        - img "Ricardo Cobo supervisando un entrenamiento de fuerza" [ref=e154]
+        - generic "Ricardo Cobo supervisando un entrenamiento de fuerza" [ref=e155]
+        - img [ref=e159]
+        - generic [ref=e162]: Video pendiente
+        - code [ref=e165]: /media/training-action.mp4
+    - generic [ref=e167]:
+      - generic [ref=e168]:
+        - paragraph [ref=e169]: Para quién es
+        - heading "Para personas que quieren cuidarse sin reorganizar toda su vida" [level=2] [ref=e170]
+        - paragraph [ref=e171]: Si te reconoces aquí, este enfoque está pensado exactamente para ti.
+      - generic [ref=e172]:
+        - generic [ref=e173]:
+          - heading "Profesionales con agenda exigente" [level=3] [ref=e174]
+          - paragraph [ref=e175]: Directivos y personas con responsabilidad que necesitan resultados reales sin perder horas en el gimnasio.
+        - generic [ref=e176]:
+          - heading "Padres y madres con poco tiempo" [level=3] [ref=e177]
+          - paragraph [ref=e178]: Quieres cuidarte para estar bien con los tuyos, pero la vida familiar no deja mucho margen. Lo adaptamos a ti.
+        - generic [ref=e179]:
+          - heading "Quienes dejaron de entrenar" [level=3] [ref=e180]
+          - paragraph [ref=e181]: Hace meses —o años— que no entrenas. Empezamos desde donde estás, sin juicios y con un plan progresivo.
+        - generic [ref=e182]:
+          - heading "Objetivos realistas y duraderos" [level=3] [ref=e183]
+          - paragraph [ref=e184]: "Salud, fuerza y una mejor imagen. Nada de promesas imposibles: un cambio que puedes mantener toda la vida."
+      - img "Pareja entrenando con Ricardo Cobo" [ref=e186]
+    - generic [ref=e189]:
+      - generic [ref=e190]:
+        - paragraph [ref=e191]: Empieza aquí
+        - heading "Empieza con una valoración personal" [level=2] [ref=e192]:
+          - text: Empieza con una
+          - text: valoración personal
+        - paragraph [ref=e193]: Hablemos de tu objetivo y veamos si este enfoque encaja contigo. Una conversación honesta, sin compromiso, para decidir el mejor punto de partida.
+        - generic [ref=e195]:
+          - img "Ricardo Cobo entrenando a un cliente" [ref=e196]
+          - generic "Ricardo Cobo entrenando a un cliente" [ref=e197]
+          - img [ref=e201]
+          - generic [ref=e204]: Video pendiente
+          - code [ref=e207]: /media/final-cta-training.mp4
+        - generic [ref=e208]:
+          - generic [ref=e209]:
+            - term [ref=e210]: "+20"
+            - definition [ref=e211]: años de experiencia
+          - generic [ref=e212]:
+            - term [ref=e213]: "+500"
+            - definition [ref=e214]: personas entrenadas
+          - generic [ref=e215]:
+            - term [ref=e216]: 100%
+            - definition [ref=e217]: personalizado
+      - generic [ref=e218]:
+        - heading "Solicita tu valoración" [level=3] [ref=e219]
+        - paragraph [ref=e220]: Te responderé personalmente en menos de 24 horas.
+        - generic [ref=e221]:
+          - generic [ref=e222]:
+            - generic [ref=e223]:
+              - generic [ref=e224]: Nombre
+              - textbox "Nombre" [ref=e225]:
+                - /placeholder: Tu nombre
+            - generic [ref=e226]:
+              - generic [ref=e227]: Email
+              - textbox "Email" [ref=e228]:
+                - /placeholder: tu@email.com
+          - generic [ref=e229]:
+            - generic [ref=e230]:
+              - generic [ref=e231]: Teléfono
+              - textbox "Teléfono" [ref=e232]:
+                - /placeholder: +34 600 000 000
+            - generic [ref=e233]:
+              - generic [ref=e234]: Objetivo principal
+              - combobox "Objetivo principal" [ref=e235]:
+                - option "Perder peso y grasa corporal" [selected]
+                - option "Ganar fuerza y tono muscular"
+                - option "Recuperar el hábito de entrenar"
+                - option "Mejorar energía y salud general"
+                - option "Prepararme para un objetivo concreto"
+                - option "Aún no lo tengo claro"
+          - generic [ref=e236]:
+            - generic [ref=e237]: Mensaje
+            - textbox "Mensaje" [ref=e238]:
+              - /placeholder: Cuéntame brevemente tu situación y qué te gustaría conseguir.
+          - generic [ref=e239]:
+            - button "Solicitar valoración" [ref=e240]:
+              - text: Solicitar valoración
+              - img [ref=e241]
+            - link "Contactar por WhatsApp" [ref=e243] [cursor=pointer]:
+              - /url: https://wa.me/000000000000?text=Hola%20Ricardo%2C%20me%20gustar%C3%ADa%20reservar%20una%20valoraci%C3%B3n.
+              - img [ref=e244]
+              - text: Contactar por WhatsApp
+          - paragraph [ref=e246]: Tus datos solo se usarán para responderte sobre la valoración. Sin compromiso.
+  - contentinfo [ref=e247]:
+    - generic [ref=e248]:
+      - generic [ref=e249]:
+        - generic [ref=e250]:
+          - img "Ricardo Cobo · Entrenamiento Personal" [ref=e251]
+          - paragraph [ref=e252]: Entrenamiento personal de alto nivel en Santander. Resultados reales, sostenibles y diseñados para personas con una vida exigente.
+        - navigation "Navegación del pie" [ref=e253]:
+          - heading "Navegación" [level=2] [ref=e254]
+          - list [ref=e255]:
+            - listitem [ref=e256]:
+              - link "Inicio" [ref=e257] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e258]:
+              - link "Resultados" [ref=e259] [cursor=pointer]:
+                - /url: /resultados
+            - listitem [ref=e260]:
+              - link "Método" [ref=e261] [cursor=pointer]:
+                - /url: /metodo
+            - listitem [ref=e262]:
+              - link "Contacto" [ref=e263] [cursor=pointer]:
+                - /url: /contacto
+        - generic [ref=e264]:
+          - heading "Contacto" [level=2] [ref=e265]
+          - list [ref=e266]:
+            - listitem [ref=e267]: Santander, Cantabria
+            - listitem [ref=e268]:
+              - link "hola@ricardocobo.es" [ref=e269] [cursor=pointer]:
+                - /url: mailto:hola@ricardocobo.es
+            - listitem [ref=e270]:
+              - link "WhatsApp" [ref=e271] [cursor=pointer]:
+                - /url: https://wa.me/000000000000
+      - generic [ref=e272]:
+        - paragraph [ref=e273]: © 2026 Ricardo Cobo · Entrenamiento Personal
+        - paragraph [ref=e274]: Prototipo de presentación · contenidos e imágenes de muestra
+  - generic [ref=e277]:
+    - button "Menu" [ref=e278]:
+      - img [ref=e280]
+      - generic: Menu
+    - button "Inspect" [ref=e284]:
+      - img [ref=e286]
+      - generic: Inspect
+    - button "Audit" [ref=e288]:
+      - img [ref=e290]
+      - generic: Audit
+    - button "Settings" [ref=e293]:
+      - img [ref=e295]
+      - generic: Settings
