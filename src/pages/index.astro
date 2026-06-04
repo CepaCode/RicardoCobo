@@ -11,6 +11,8 @@ import trainingImg from "../assets/RicardoWorkingOut.jpg";
 import trainingImg2 from "../assets/RicardoWorkingOut2.jpg";
 import parejaImg from "../assets/ParejaWorkingOut.jpg";
 
+const media = (path: string) => `${import.meta.env.BASE_URL}media/${path}`;
+
 const stories = [
   {
     index: "01",
@@ -71,7 +73,7 @@ const audience = [
   <!-- ============================ HERO ============================ -->
   <section class="relative isolate min-h-[100svh] overflow-hidden bg-navy">
     <!--
-      Hero background media. Drops in /media/hero-training.mp4 automatically.
+      Hero background media. Drops in the media folder automatically.
       To activate this video, place the file in public/media using the filename
       shown in the overlay badge below. The shared [data-video-placeholder]
       script (emitted by <VideoPlaceholder>) reveals the video when it can play
@@ -96,7 +98,7 @@ const audience = [
         poster={heroImg.src}
         aria-label="Ricardo Cobo entrenando"
       >
-        <source src="/media/hero-training.mp4" type="video/mp4" />
+        <source src={media("hero-training.mp4")} type="video/mp4" />
       </video>
     </div>
     <!-- Brand-blue cinematic wash (keeps identity blue, not black) -->
@@ -266,11 +268,11 @@ const audience = [
         </div>
 
         <div class="order-1 lg:order-2">
-          <!-- Auto-activates when /media/training-action.mp4 is added to public/media -->
+          <!-- Auto-activates when the training-action.mp4 file is added to public/media -->
           <VideoPlaceholder
             fallbackImage={trainingImg2}
             alt="Ricardo Cobo supervisando un entrenamiento de fuerza"
-            videoPath="/media/training-action.mp4"
+            videoPath={media("training-action.mp4")}
             ratio="aspect-[4/5]"
           />
         </div>

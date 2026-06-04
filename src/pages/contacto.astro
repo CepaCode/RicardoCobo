@@ -5,6 +5,8 @@ import VideoPlaceholder from "../components/VideoPlaceholder.astro";
 
 import portraitImg from "../assets/RicardoFront2.jpg";
 
+const media = (path: string) => `${import.meta.env.BASE_URL}media/${path}`;
+
 const faqs = [
   {
     q: "¿Qué incluye la valoración inicial?",
@@ -66,11 +68,11 @@ const faqs = [
 
         <!-- Aside -->
         <div class="lg:sticky lg:top-28">
-          <!-- Auto-activates when /media/final-cta-training.mp4 is added to public/media -->
+          <!-- Auto-activates when the final-cta-training.mp4 file is added to public/media -->
           <VideoPlaceholder
             fallbackImage={portraitImg}
             alt="Ricardo Cobo, entrenador personal en Santander"
-            videoPath="/media/final-cta-training.mp4"
+            videoPath={media("final-cta-training.mp4")}
             ratio="aspect-[4/5]"
           />
 

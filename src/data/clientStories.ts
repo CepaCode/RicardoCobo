@@ -20,21 +20,23 @@
  *   before: portrait, ~1200×1600 (3:4), .jpg
  *   after : portrait, ~1200×1600 (3:4), .jpg
  */
+const media = (path: string) => `${import.meta.env.BASE_URL}media/${path}`;
+
 export const clientStoryImages = {
   carlos: {
-    cover: "/media/client-stories/carlos-cover.png",
-    before: "/media/client-stories/carlos-before.png",
-    after: "/media/client-stories/carlos-after.png",
+    cover: media("client-stories/carlos-cover.png"),
+    before: media("client-stories/carlos-before.png"),
+    after: media("client-stories/carlos-after.png"),
   },
   maria: {
-    cover: "/media/client-stories/maria-cover.png",
-    before: "/media/client-stories/maria-before.png",
-    after: "/media/client-stories/maria-after.png",
+    cover: media("client-stories/maria-cover.png"),
+    before: media("client-stories/maria-before.png"),
+    after: media("client-stories/maria-after.png"),
   },
   javier: {
-    cover: "/media/client-stories/javier-cover.png",
-    before: "/media/client-stories/javier-before.png",
-    after: "/media/client-stories/javier-after.png",
+    cover: media("client-stories/javier-cover.png"),
+    before: media("client-stories/javier-before.png"),
+    after: media("client-stories/javier-after.png"),
   },
 } as const;
 

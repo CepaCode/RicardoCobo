@@ -7,6 +7,8 @@ import FinalCTA from "../components/FinalCTA.astro";
 import assessmentImg from "../assets/RicardoFront2.jpg";
 import trainingImg from "../assets/RicardoWorkingOut.jpg";
 
+const media = (path: string) => `${import.meta.env.BASE_URL}media/${path}`;
+
 const phases = [
   {
     n: "01",
@@ -99,11 +101,11 @@ const phases = [
         </div>
 
         <div>
-          <!-- Auto-activates when /media/assessment-session.mp4 is added to public/media -->
+          <!-- Auto-activates when the assessment-session.mp4 file is added to public/media -->
           <VideoPlaceholder
             fallbackImage={assessmentImg}
             alt="Sesión de valoración con Ricardo Cobo"
-            videoPath="/media/assessment-session.mp4"
+            videoPath={media("assessment-session.mp4")}
             ratio="aspect-[4/3]"
           />
         </div>

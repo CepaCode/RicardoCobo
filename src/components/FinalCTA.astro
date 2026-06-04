@@ -8,6 +8,8 @@
 import EnquiryForm from "./EnquiryForm.astro";
 import VideoPlaceholder from "./VideoPlaceholder.astro";
 import ricardoFront from "../assets/RicardoFront2.jpg";
+
+const media = (path: string) => `${import.meta.env.BASE_URL}media/${path}`;
 ---
 
 <section id="valoracion" class="relative overflow-hidden bg-navy">
@@ -28,12 +30,12 @@ import ricardoFront from "../assets/RicardoFront2.jpg";
           partida.
         </p>
 
-        <!-- Auto-activates when /media/final-cta-training.mp4 is added to public/media -->
+        <!-- Auto-activates when the final-cta-training.mp4 file is added to public/media -->
         <div class="mt-10">
           <VideoPlaceholder
             fallbackImage={ricardoFront}
             alt="Ricardo Cobo entrenando a un cliente"
-            videoPath="/media/final-cta-training.mp4"
+            videoPath={media("final-cta-training.mp4")}
             ratio="aspect-[16/10]"
           />
         </div>
