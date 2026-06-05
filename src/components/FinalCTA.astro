@@ -8,8 +8,7 @@
 import EnquiryForm from "./EnquiryForm.astro";
 import VideoPlaceholder from "./VideoPlaceholder.astro";
 import ricardoFront from "../assets/RicardoFront2.jpg";
-
-const media = (path: string) => `${import.meta.env.BASE_URL}media/${path}`;
+import { mediaPath } from "../utils/paths";
 ---
 
 <section id="valoracion" class="relative overflow-hidden bg-navy">
@@ -35,7 +34,7 @@ const media = (path: string) => `${import.meta.env.BASE_URL}media/${path}`;
           <VideoPlaceholder
             fallbackImage={ricardoFront}
             alt="Ricardo Cobo entrenando a un cliente"
-            videoPath={media("final-cta-training.mp4")}
+            videoPath={mediaPath("final-cta-training.mp4")}
             ratio="aspect-[16/10]"
           />
         </div>

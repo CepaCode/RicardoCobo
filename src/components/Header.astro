@@ -1,13 +1,16 @@
 ---
 // Premium sticky header with scroll-aware styling and mobile menu.
 import logo from "../assets/imgLogoRCExtendidoFuenteAzul.png";
+import { withBase } from "../utils/paths";
 
 const navItems = [
-  { label: "Inicio", href: "/" },
-  { label: "Resultados", href: "/resultados" },
-  { label: "Método", href: "/metodo" },
-  { label: "Contacto", href: "/contacto" },
+  { label: "Inicio", href: withBase("") },
+  { label: "Resultados", href: withBase("resultados") },
+  { label: "Método", href: withBase("metodo") },
+  { label: "Contacto", href: withBase("contacto") },
 ];
+
+const contactHref = withBase("contacto");
 ---
 
 <header
@@ -21,7 +24,7 @@ const navItems = [
   >
     <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-8 lg:px-10">
       <!-- Brand -->
-      <a href="/" class="flex items-center gap-3" aria-label="Ricardo Cobo · Inicio">
+      <a href={withBase("")} class="flex items-center gap-3" aria-label="Ricardo Cobo · Inicio">
         <img
           src={logo.src}
           alt="Ricardo Cobo · Entrenamiento Personal"
@@ -48,7 +51,7 @@ const navItems = [
 
       <!-- Desktop CTA -->
       <a
-        href="/contacto"
+        href={contactHref}
         class="hidden items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-xl hover:shadow-brand/30 lg:inline-flex"
       >
         Reservar valoración
@@ -92,7 +95,7 @@ const navItems = [
         }
       </nav>
       <a
-        href="/contacto"
+        href={contactHref}
         class="mt-auto inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-4 text-base font-semibold text-brand"
       >
         Reservar valoración

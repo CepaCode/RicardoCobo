@@ -3,11 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import VideoPlaceholder from "../components/VideoPlaceholder.astro";
 import QuoteSection from "../components/QuoteSection.astro";
 import FinalCTA from "../components/FinalCTA.astro";
+import { mediaPath, withBase } from "../utils/paths";
 
 import assessmentImg from "../assets/RicardoFront2.jpg";
 import trainingImg from "../assets/RicardoWorkingOut.jpg";
-
-const media = (path: string) => `${import.meta.env.BASE_URL}media/${path}`;
 
 const phases = [
   {
@@ -90,7 +89,7 @@ const phases = [
             plan funciona desde el primer día.
           </p>
           <a
-            href="/contacto"
+            href={withBase("contacto")}
             class="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-brand px-8 py-4 text-base font-semibold text-white shadow-lg shadow-brand/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-700"
           >
             Reservar mi valoración
@@ -105,7 +104,7 @@ const phases = [
           <VideoPlaceholder
             fallbackImage={assessmentImg}
             alt="Sesión de valoración con Ricardo Cobo"
-            videoPath={media("assessment-session.mp4")}
+            videoPath={mediaPath("assessment-session.mp4")}
             ratio="aspect-[4/3]"
           />
         </div>

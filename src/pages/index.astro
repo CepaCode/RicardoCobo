@@ -5,13 +5,12 @@ import ClientStoryCard from "../components/ClientStoryCard.astro";
 import { clientStoryImages } from "../data/clientStories";
 import QuoteSection from "../components/QuoteSection.astro";
 import FinalCTA from "../components/FinalCTA.astro";
+import { mediaPath, withBase } from "../utils/paths";
 
 import heroImg from "../assets/RicardoHeroImage.png";
 import trainingImg from "../assets/RicardoWorkingOut.jpg";
 import trainingImg2 from "../assets/RicardoWorkingOut2.jpg";
 import parejaImg from "../assets/ParejaWorkingOut.jpg";
-
-const media = (path: string) => `${import.meta.env.BASE_URL}media/${path}`;
 
 const stories = [
   {
@@ -23,7 +22,7 @@ const stories = [
     headline: "Recuperó su forma y volvió a sentirse en control",
     teaser:
       "Perdió 14 kg, recuperó la confianza y hoy tiene energía de sobra para su familia y su trabajo.",
-    href: "/resultados/carlos-recupera-su-forma",
+    href: withBase("resultados/carlos-recupera-su-forma"),
   },
   {
     index: "02",
@@ -34,7 +33,7 @@ const stories = [
     headline: "Volvió a entrenar después de años parada",
     teaser:
       "Recuperó fuerza, movilidad y una relación sana con el ejercicio, sin obsesiones ni dietas extremas.",
-    href: "/resultados/maria-vuelve-a-entrenar",
+    href: withBase("resultados/maria-vuelve-a-entrenar"),
   },
   {
     index: "03",
@@ -45,7 +44,7 @@ const stories = [
     headline: "Construyó un hábito que sobrevive a su agenda",
     teaser:
       "Entre viajes y reuniones, logró un sistema sostenible que mejoró su energía y su salud.",
-    href: "/resultados/javier-recupera-su-energia",
+    href: withBase("resultados/javier-recupera-su-energia"),
   },
 ];
 
@@ -98,7 +97,7 @@ const audience = [
         poster={heroImg.src}
         aria-label="Ricardo Cobo entrenando"
       >
-        <source src={media("hero-training.mp4")} type="video/mp4" />
+        <source src={mediaPath("hero-training.mp4")} type="video/mp4" />
       </video>
     </div>
     <!-- Brand-blue cinematic wash (keeps identity blue, not black) -->
@@ -124,7 +123,7 @@ const audience = [
 
         <div class="mt-8 flex flex-wrap items-center gap-4">
           <a
-            href="/contacto"
+            href={withBase("contacto")}
             class="group inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-base font-semibold text-brand shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-50"
           >
             Reservar valoración
@@ -133,7 +132,7 @@ const audience = [
             </svg>
           </a>
           <a
-            href="/metodo"
+            href={withBase("metodo")}
             class="inline-flex items-center gap-2.5 rounded-full border border-white/40 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10"
           >
             Ver método
@@ -205,7 +204,7 @@ const audience = [
           </p>
         </div>
         <a
-          href="/resultados"
+          href={withBase("resultados")}
           class="group inline-flex shrink-0 items-center gap-2 text-base font-semibold text-brand-200 transition-all hover:gap-3.5 hover:text-white"
         >
           Ver todas las historias
@@ -272,7 +271,7 @@ const audience = [
           <VideoPlaceholder
             fallbackImage={trainingImg2}
             alt="Ricardo Cobo supervisando un entrenamiento de fuerza"
-            videoPath={media("training-action.mp4")}
+            videoPath={mediaPath("training-action.mp4")}
             ratio="aspect-[4/5]"
           />
         </div>

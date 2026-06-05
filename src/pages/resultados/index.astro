@@ -4,6 +4,7 @@ import ClientStoryCard from "../../components/ClientStoryCard.astro";
 import QuoteSection from "../../components/QuoteSection.astro";
 import FinalCTA from "../../components/FinalCTA.astro";
 import { clientStoryImages } from "../../data/clientStories";
+import { withBase } from "../../utils/paths";
 
 import trainingImg from "../../assets/RicardoWorkingOut.jpg";
 import trainingImg2 from "../../assets/RicardoWorkingOut2.jpg";
@@ -19,7 +20,7 @@ const stories = [
     headline: "Recuperó su forma y volvió a sentirse en control",
     teaser:
       "Perdió 14 kg, recuperó la confianza y hoy tiene energía de sobra para su familia y su trabajo.",
-    href: "/resultados/carlos-recupera-su-forma",
+    href: withBase("resultados/carlos-recupera-su-forma"),
   },
   {
     index: "02",
@@ -30,7 +31,7 @@ const stories = [
     headline: "Volvió a entrenar después de años parada",
     teaser:
       "Recuperó fuerza, movilidad y una relación sana con el ejercicio, sin obsesiones ni dietas extremas.",
-    href: "/resultados/maria-vuelve-a-entrenar",
+    href: withBase("resultados/maria-vuelve-a-entrenar"),
   },
   {
     index: "03",
@@ -41,7 +42,7 @@ const stories = [
     headline: "Construyó un hábito que sobrevive a su agenda",
     teaser:
       "Entre viajes y reuniones, logró un sistema sostenible que mejoró su energía y su salud.",
-    href: "/resultados/javier-recupera-su-energia",
+    href: withBase("resultados/javier-recupera-su-energia"),
   },
 ];
 ---

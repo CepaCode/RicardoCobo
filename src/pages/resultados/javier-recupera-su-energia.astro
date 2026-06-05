@@ -1,6 +1,7 @@
 ---
 import CaseStudyArticle from "../../components/CaseStudyArticle.astro";
 import { clientStoryImages } from "../../data/clientStories";
+import { withBase } from "../../utils/paths";
 import heroImg from "../../assets/RicardoWorkingOut2.jpg";
 import beforeImg from "../../assets/RicardoFront.png";
 import afterImg from "../../assets/RicardoFront2.jpg";
@@ -44,8 +45,8 @@ const lessons = [
 ];
 
 const related = [
-  { name: "Carlos", href: "/resultados/carlos-recupera-su-forma" },
-  { name: "María", href: "/resultados/maria-vuelve-a-entrenar" },
+  { name: "Carlos", href: withBase("resultados/carlos-recupera-su-forma") },
+  { name: "María", href: withBase("resultados/maria-vuelve-a-entrenar") },
 ];
 ---
 

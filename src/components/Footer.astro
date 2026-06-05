@@ -1,8 +1,15 @@
 ---
 // Premium footer with brand wordmark, navigation and prototype note.
 import logo from "../assets/imgLogoRCFondoAzul.png";
+import { withBase } from "../utils/paths";
 
 const year = new Date().getFullYear();
+const navItems = [
+  { label: "Inicio", href: withBase("") },
+  { label: "Resultados", href: withBase("resultados") },
+  { label: "Método", href: withBase("metodo") },
+  { label: "Contacto", href: withBase("contacto") },
+];
 ---
 
 <footer class="bg-navy text-white">
@@ -25,10 +32,13 @@ const year = new Date().getFullYear();
       <nav aria-label="Navegación del pie" class="text-white/75">
         <h2 class="eyebrow text-brand-200">Navegación</h2>
         <ul class="mt-5 space-y-3 text-base">
-          <li><a class="transition-colors hover:text-white" href="/">Inicio</a></li>
-          <li><a class="transition-colors hover:text-white" href="/resultados">Resultados</a></li>
-          <li><a class="transition-colors hover:text-white" href="/metodo">Método</a></li>
-          <li><a class="transition-colors hover:text-white" href="/contacto">Contacto</a></li>
+          {
+            navItems.map((item) => (
+              <li>
+                <a class="transition-colors hover:text-white" href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
         </ul>
       </nav>
 

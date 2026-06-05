@@ -2,10 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import EnquiryForm from "../components/EnquiryForm.astro";
 import VideoPlaceholder from "../components/VideoPlaceholder.astro";
+import { mediaPath } from "../utils/paths";
 
 import portraitImg from "../assets/RicardoFront2.jpg";
-
-const media = (path: string) => `${import.meta.env.BASE_URL}media/${path}`;
 
 const faqs = [
   {
@@ -72,7 +71,7 @@ const faqs = [
           <VideoPlaceholder
             fallbackImage={portraitImg}
             alt="Ricardo Cobo, entrenador personal en Santander"
-            videoPath={media("final-cta-training.mp4")}
+            videoPath={mediaPath("final-cta-training.mp4")}
             ratio="aspect-[4/5]"
           />
 
