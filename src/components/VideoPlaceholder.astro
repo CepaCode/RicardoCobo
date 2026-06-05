@@ -25,7 +25,7 @@ const {
   overlay = "dark",
 } = Astro.props;
 
-const resolvedVideoPath = `${import.meta.env.BASE_URL}${videoPath.replace(/^\//, "")}`;
+const resolvedVideoPath = videoPath;
 const overlayLabel = label ?? resolvedVideoPath;
 
 const overlayClass =
