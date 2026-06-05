@@ -1,38 +1,15 @@
 ---
 import type { ImageMetadata } from "astro";
 
-/**
- * VideoPlaceholder — reusable self-activating video system
- * --------------------------------------------------------
- * CONTRACT:
- *   To activate this video, place the file in public/media using the
- *   filename shown in the overlay (e.g. /media/hero-training.mp4).
- *
- * How it works:
- *   - `videoPath` is the SINGLE SOURCE OF TRUTH (a public URL, never imported).
- *   - A real <video> element always renders, layered ON TOP of `fallbackImage`.
- *   - If the file exists in /public/media, the browser plays it automatically
- *     on refresh — no code changes needed.
- *   - If the file is missing (or fails to load/play), JS hides the <video> so
- *     the fallback image + overlay remain visible and the section still looks
- *     good. See the inline <script> below.
- *   - The "VIDEO PENDIENTE" label is derived automatically from `videoPath`
- *     unless an explicit `label` is provided. The text overlays can be hidden
- *     by default via `showOverlayInfo={false}` and re-enabled later without
- *     touching the rest of the component.
- *
- * This component is generic: it works for ALL current and future placeholders
- * just by passing a different `videoPath`. No per-file logic anywhere.
- */
 interface Props {
-  videoPath: string; // canonical public URL, e.g. "/media/hero-training.mp4"
-  fallbackImage: ImageMetadata; // shown behind the video / when it's missing
+  videoPath: string;
+  fallbackImage: ImageMetadata;
   alt: string;
-  label?: string; // optional override; otherwise derived from videoPath
+  label?: string;
   showOverlayInfo?: boolean;
   class?: string;
-  ratio?: string; // Tailwind aspect class, e.g. "aspect-[16/9]"
-  rounded?: string; // Tailwind rounding class (default rounded-2xl)
+  ratio?: string;
+  rounded?: string;
   overlay?: "light" | "dark";
 }
 
@@ -48,8 +25,8 @@ const {
   overlay = "dark",
 } = Astro.props;
 
-// Single source of truth for the overlay label: derive from videoPath.
-const overlayLabel = label ?? videoPath;
+const resolvedVideoPath = `${import.meta.env.BASE_URL}${videoPath.replace(/^\//, "")}`;
+const overlayLabel = label ?? resolvedVideoPath;
 
 const overlayClass =
   overlay === "dark"
@@ -62,7 +39,6 @@ const overlayClass =
   data-video-placeholder
   data-state="loading"
 >
-  <!-- Fallback image: always rendered BEHIND the video. -->
   <img
     src={fallbackImage.src}
     alt={alt}
@@ -72,11 +48,6 @@ const overlayClass =
     loading="lazy"
   />
 
-  <!--
-    Real video element, layered on top of the fallback image.
-    Auto-plays the file at `videoPath` if it exists in /public/media.
-    Hidden by JS (data-state="missing") if the file is absent or errors out.
-  -->
   <video
     class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 data-[ready]:opacity-100"
     autoplay
@@ -87,18 +58,15 @@ const overlayClass =
     poster={fallbackImage.src}
     aria-label={alt}
   >
-    <source src={videoPath} type="video/mp4" />
+    <source src={resolvedVideoPath} type="video/mp4" />
   </video>
 
-  <!-- Cinematic gradient (kept subtle; dimmed further when a video plays). -->
   <div
     class={`absolute inset-0 bg-gradient-to-t transition-opacity duration-700 group-data-[state=playing]:opacity-40 ${overlayClass}`}
   ></div>
 
-  <!-- Persistent brand-blue identity tint — ties all videos to the site palette. -->
   <div class="absolute inset-0 bg-brand/15 mix-blend-multiply"></div>
 
-  <!-- Play affordance: hidden once a real video is playing. -->
   <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-data-[state=playing]:opacity-0">
     <span
       class="flex h-16 w-16 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/40 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:bg-white/25 sm:h-20 sm:w-20"
@@ -111,10 +79,6 @@ const overlayClass =
 
   {showOverlayInfo && (
     <>
-      <!--
-        "VIDEO PENDIENTE" overlay label. Stays visible but subtle while prototyping;
-        fades down once a real video is playing. Text derived from `videoPath`.
-      -->
       <div class="absolute left-4 top-4 transition-opacity duration-500 group-data-[state=playing]:opacity-60 sm:left-5 sm:top-5">
         <span
           class="inline-flex items-center gap-2 rounded-full bg-navy/70 px-3.5 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-white ring-1 ring-white/15 backdrop-blur-sm"
@@ -124,7 +88,6 @@ const overlayClass =
         </span>
       </div>
 
-      <!-- Target file path (the filename to drop into /public/media to activate). -->
       <div class="absolute bottom-4 left-4 right-4 transition-opacity duration-500 group-data-[state=playing]:opacity-60 sm:bottom-5 sm:left-5">
         <code
           class="inline-block max-w-full truncate rounded-lg bg-navy/65 px-3 py-1.5 font-mono text-xs text-brand-100 ring-1 ring-white/10 backdrop-blur-sm"
@@ -137,20 +100,13 @@ const overlayClass =
 </div>
 
 <script>
-  // Self-activating behavior for every <VideoPlaceholder> on the page.
-  // - If the video can play, reveal it and mark the container as "playing".
-  // - If the source is missing or errors, mark it "missing" so the <video>
-  //   stays hidden and the fallback image + overlay remain visible.
   const setup = (root: HTMLElement) => {
     const video = root.querySelector<HTMLVideoElement>("video");
     if (!video) return;
 
     const img = root.querySelector<HTMLImageElement>("img");
-    // Optional grace period before the fallback image is revealed. While we
-    // wait, the section's blue background shows instead of the image, giving
-    // the video a chance to render first. If the video starts playing before
-    // the delay elapses, the image is never shown.
     const delay = Number(root.dataset.fallbackDelay ?? 0);
+
     const showImage = () => {
       if (img) img.dataset.shown = "";
     };
@@ -159,15 +115,13 @@ const overlayClass =
       root.dataset.state = "playing";
       video.dataset.ready = "";
     };
+
     const fail = () => {
       root.dataset.state = "missing";
       delete video.dataset.ready;
       showImage();
     };
 
-    // Without a delay the image is visible immediately (default behavior).
-    // With a delay, only reveal it once the timer fires and the video still
-    // isn't playing.
     if (delay > 0) {
       window.setTimeout(() => {
         if (root.dataset.state !== "playing") showImage();
@@ -177,20 +131,17 @@ const overlayClass =
     }
 
     if (video.readyState >= 2) reveal();
+
     video.addEventListener("playing", reveal, { once: true });
     video.addEventListener("loadeddata", () => {
       if (video.readyState >= 2) reveal();
     });
     video.addEventListener("error", fail);
-    // A missing <source> fires error on the child node, not the <video>.
     video.querySelector("source")?.addEventListener("error", fail);
 
-    // Nudge autoplay where browsers need an explicit kick.
     const tryPlay = video.play();
     if (tryPlay && typeof tryPlay.catch === "function") {
-      tryPlay.catch(() => {
-        /* Autoplay can be blocked; fallback image still shows. */
-      });
+      tryPlay.catch(() => {});
     }
   };
 
