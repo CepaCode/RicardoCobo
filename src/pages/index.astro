@@ -1,8 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import VideoPlaceholder from "../components/VideoPlaceholder.astro";
-import ClientStoryCard from "../components/ClientStoryCard.astro";
-import { clientStoryImages } from "../data/clientStories";
+
 import QuoteSection from "../components/QuoteSection.astro";
 import FinalCTA from "../components/FinalCTA.astro";
 import KnowledgeVideoCard from "../components/KnowledgeVideoCard.astro";
@@ -10,45 +9,9 @@ import { knowledgeVideos } from "../data/knowledgeVideos";
 import { mediaPath, withBase } from "../utils/paths";
 
 import heroImg from "../assets/RicardoHeroImage.png";
-import trainingImg from "../assets/RicardoWorkingOut.jpg";
 import trainingImg2 from "../assets/RicardoWorkingOut2.jpg";
-import parejaImg from "../assets/ParejaWorkingOut.jpg";
 
-const stories = [
-  {
-    index: "01",
-    image: trainingImg,
-    imageSrc: clientStoryImages.carlos.cover,
-    name: "Carlos",
-    meta: "Carlos · 48 · Director comercial",
-    headline: "Recuperó su forma y volvió a sentirse en control",
-    teaser:
-      "Perdió 14 kg, recuperó la confianza y hoy tiene energía de sobra para su familia y su trabajo.",
-    href: withBase("resultados/carlos-recupera-su-forma"),
-  },
-  {
-    index: "02",
-    image: parejaImg,
-    imageSrc: clientStoryImages.maria.cover,
-    name: "María",
-    meta: "María · 41 · Abogada",
-    headline: "Volvió a entrenar después de años parada",
-    teaser:
-      "Recuperó fuerza, movilidad y una relación sana con el ejercicio, sin obsesiones ni dietas extremas.",
-    href: withBase("resultados/maria-vuelve-a-entrenar"),
-  },
-  {
-    index: "03",
-    image: trainingImg2,
-    imageSrc: clientStoryImages.javier.cover,
-    name: "Javier",
-    meta: "Javier · 52 · Empresario",
-    headline: "Construyó un hábito que sobrevive a su agenda",
-    teaser:
-      "Entre viajes y reuniones, logró un sistema sostenible que mejoró su energía y su salud.",
-    href: withBase("resultados/javier-recupera-su-energia"),
-  },
-];
+
 
 const audience = [
   {
@@ -70,6 +33,11 @@ const audience = [
 ];
 
 const homepageMethodVideo = knowledgeVideos.find((video) => video.id === "motivacion-real")!;
+
+const carouselVideoIds = ["tour-gimnasio", "que-ofrecemos", "motivacion-real"];
+const carouselVideos = carouselVideoIds
+  .map((id) => knowledgeVideos.find((v) => v.id === id)!)
+  .filter(Boolean);
 ---
 
 <BaseLayout>
@@ -153,6 +121,48 @@ const homepageMethodVideo = knowledgeVideos.find((video) => video.id === "motiva
     </div>
   </section>
 
+  <!-- ===================== VIDEO CAROUSEL ===================== -->
+  <section class="bg-navy">
+    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+      <div class="max-w-2xl">
+        <p class="eyebrow text-brand-200">Descubre el espacio</p>
+        <h2 class="mt-5 font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl">
+          Conoce cómo entrenamos
+        </h2>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+          Un vistazo a nuestro espacio, nuestra forma de trabajar y lo que nos mueve.
+        </p>
+      </div>
+
+      <div class="relative mt-14">
+        <!-- Carousel track -->
+        <div
+          class="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-pl-5 px-5 pb-4 sm:-mx-8 sm:gap-6 sm:scroll-pl-8 sm:px-8 lg:mx-0 lg:gap-8 lg:px-0"
+          data-video-carousel
+        >
+          {carouselVideos.map((video) => (
+            <div class="w-[70vw] max-w-[300px] shrink-0 snap-start sm:w-[44vw] lg:w-[calc(33.333%-1.33rem)] lg:max-w-none">
+              <KnowledgeVideoCard video={video} />
+            </div>
+          ))}
+        </div>
+
+        <!-- Navigation dots -->
+        <div class="mt-8 flex items-center justify-center gap-2.5 lg:hidden" data-carousel-dots>
+          {carouselVideos.map((_, i) => (
+            <button
+              type="button"
+              class="h-2.5 w-2.5 rounded-full bg-white/30 transition-all duration-300"
+              class:list={[i === 0 && "!w-7 !bg-brand-300"]}
+              data-dot-index={i}
+              aria-label={`Ir al vídeo ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ======================= SOCIAL PROOF ======================= -->
   <section class="bg-white">
     <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
@@ -188,38 +198,6 @@ const homepageMethodVideo = knowledgeVideos.find((video) => video.id === "motiva
             ))
           }
         </dl>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CLIENT STORIES ===================== -->
-  <section class="bg-navy">
-    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
-      <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-        <div class="max-w-2xl">
-          <p class="eyebrow text-brand-200">Resultados</p>
-          <h2 class="mt-5 font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
-            Historias reales.<br />Cambios extraordinarios.
-          </h2>
-          <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-            No vendemos transformaciones imposibles. Acompañamos a personas
-            normales —con trabajos exigentes y poco tiempo— a conseguir el cuerpo,
-            la energía y la confianza que creían perdidos.
-          </p>
-        </div>
-        <a
-          href={withBase("resultados")}
-          class="group inline-flex shrink-0 items-center gap-2 text-base font-semibold text-brand-200 transition-all hover:gap-3.5 hover:text-white"
-        >
-          Ver todas las historias
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </a>
-      </div>
-
-      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {stories.map((s) => <ClientStoryCard {...s} />)}
       </div>
     </div>
   </section>
@@ -355,4 +333,37 @@ const homepageMethodVideo = knowledgeVideos.find((video) => video.id === "motiva
 
   <!-- ====================== FINAL CTA ====================== -->
   <FinalCTA />
+
+  <script>
+    // Carousel dot navigation
+    const carousel = document.querySelector<HTMLElement>("[data-video-carousel]");
+    const dots = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-carousel-dots] button"));
+
+    if (carousel && dots.length) {
+      const updateDots = () => {
+        const children = Array.from(carousel.children) as HTMLElement[];
+        if (!children.length) return;
+        const scrollLeft = carousel.scrollLeft;
+        const childWidth = children[0].offsetWidth + parseFloat(getComputedStyle(carousel).gap || "0");
+        const activeIndex = Math.round(scrollLeft / childWidth);
+
+        dots.forEach((dot, i) => {
+          const isActive = i === activeIndex;
+          dot.classList.toggle("!w-7", isActive);
+          dot.classList.toggle("!bg-brand-300", isActive);
+        });
+      };
+
+      carousel.addEventListener("scroll", updateDots, { passive: true });
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const index = Number(dot.dataset.dotIndex ?? 0);
+          const children = Array.from(carousel.children) as HTMLElement[];
+          if (!children[index]) return;
+          carousel.scrollTo({ left: children[index].offsetLeft - carousel.offsetLeft, behavior: "smooth" });
+        });
+      });
+    }
+  </script>
 </BaseLayout>
