@@ -1,0 +1,98 @@
+---
+import type { KnowledgeVideo } from "../data/knowledgeVideos";
+import { knowledgeCategoryLabels } from "../data/knowledgeVideos";
+import { knowledgeMediaPath } from "../utils/paths";
+
+interface Props {
+  video: KnowledgeVideo;
+  compact?: boolean;
+}
+
+const { video, compact = false } = Astro.props;
+const videoSrc = knowledgeMediaPath(video.file);
+const posterSrc = knowledgeMediaPath(`posters/${video.poster}`);
+---
+
+<article
+  class:list={[
+    "group overflow-hidden rounded-2xl bg-white ring-1 ring-haze transition-shadow duration-300 hover:shadow-xl hover:shadow-brand/10",
+    compact ? "max-w-[19rem]" : "h-full",
+  ]}
+  data-knowledge-video-card
+>
+  <div class="relative isolate aspect-[9/16] overflow-hidden bg-navy">
+    <div
+      class="absolute inset-0 scale-110 bg-cover bg-center opacity-25 blur-2xl"
+      style={`background-image: url('${posterSrc}')`}
+      aria-hidden="true"
+    ></div>
+    <video
+      class="relative z-10 h-full w-full object-contain"
+      poster={posterSrc}
+      preload="none"
+      playsinline
+      controlslist="nodownload"
+      data-src={videoSrc}
+      aria-label={`Reproducir: ${video.title}`}
+    ></video>
+    <button
+      type="button"
+      class="absolute inset-0 z-20 flex items-center justify-center bg-navy/10 transition-colors hover:bg-navy/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-5px] focus-visible:outline-white"
+      aria-label={`Reproducir vídeo: ${video.title}`}
+      data-video-play
+    >
+      <span class="flex h-16 w-16 items-center justify-center rounded-full bg-white text-brand shadow-2xl transition-transform duration-300 group-hover:scale-105" aria-hidden="true">
+        <svg class="ml-1 h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </span>
+    </button>
+  </div>
+
+  <div class:list={[compact ? "p-5" : "p-6"]}>
+    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
+      {knowledgeCategoryLabels[video.category]}
+    </p>
+    <h3 class="mt-2 font-display text-xl font-bold leading-tight text-navy">{video.title}</h3>
+    <p class="mt-2 text-sm leading-relaxed text-slate-blue">{video.description}</p>
+  </div>
+</article>
+
+<script>
+  const setupKnowledgeVideos = () => {
+    document.querySelectorAll<HTMLElement>("[data-knowledge-video-card]").forEach((card) => {
+      if (card.dataset.ready === "true") return;
+      card.dataset.ready = "true";
+
+      const video = card.querySelector<HTMLVideoElement>("video[data-src]");
+      const playButton = card.querySelector<HTMLButtonElement>("[data-video-play]");
+      if (!video || !playButton) return;
+
+      playButton.addEventListener("click", async () => {
+        document.querySelectorAll<HTMLVideoElement>("[data-knowledge-video-card] video").forEach((other) => {
+          if (other !== video) other.pause();
+        });
+
+        if (!video.src) {
+          video.src = video.dataset.src ?? "";
+          video.controls = true;
+          video.load();
+        }
+
+        playButton.hidden = true;
+        try {
+          await video.play();
+        } catch {
+          playButton.hidden = false;
+        }
+      });
+
+      video.addEventListener("ended", () => {
+        playButton.hidden = false;
+      });
+    });
+  };
+
+  setupKnowledgeVideos();
+  document.addEventListener("astro:page-load", setupKnowledgeVideos);
+</script>

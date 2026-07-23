@@ -6,7 +6,8 @@ import { withBase } from "../utils/paths";
 const navItems = [
   { label: "Inicio", href: withBase("") },
   { label: "Resultados", href: withBase("resultados") },
-  { label: "Método", href: withBase("metodo") },
+  { label: "El método", href: withBase("metodo") },
+  { label: "Consejos", href: withBase("consejos") },
   { label: "Contacto", href: withBase("contacto") },
 ];
 
@@ -35,7 +36,7 @@ const contactHref = withBase("contacto");
       </a>
 
       <!-- Desktop nav -->
-      <nav class="hidden items-center gap-9 lg:flex" aria-label="Navegación principal">
+      <nav class="hidden items-center gap-6 xl:gap-9 lg:flex" aria-label="Navegación principal">
         {
           navItems.map((item) => (
             <a

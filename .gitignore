@@ -20,5 +20,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# local source footage (optimized derivatives live in public/media/knowledge)
+src/assets/Pack 1/
+src/assets/Pack 2/
+
 # jetbrains setting folder
 .idea/

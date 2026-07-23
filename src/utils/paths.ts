@@ -11,3 +11,11 @@ export const mediaPath = (path: string) => {
   const normalizedPath = path.replace(/^\//, "").replace(/^media\//, "");
   return withBase(`media/${normalizedPath}`);
 };
+
+export const knowledgeMediaPath = (path: string) => {
+  const normalizedPath = path
+    .replace(/^\//, "")
+    .replace(/^media\//, "")
+    .replace(/^knowledge\//, "");
+  return mediaPath(`knowledge/${normalizedPath}`);
+};

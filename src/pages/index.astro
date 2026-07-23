@@ -5,6 +5,8 @@ import ClientStoryCard from "../components/ClientStoryCard.astro";
 import { clientStoryImages } from "../data/clientStories";
 import QuoteSection from "../components/QuoteSection.astro";
 import FinalCTA from "../components/FinalCTA.astro";
+import KnowledgeVideoCard from "../components/KnowledgeVideoCard.astro";
+import { knowledgeVideos } from "../data/knowledgeVideos";
 import { mediaPath, withBase } from "../utils/paths";
 
 import heroImg from "../assets/RicardoHeroImage.png";
@@ -66,6 +68,8 @@ const audience = [
     body: "Salud, fuerza y una mejor imagen. Nada de promesas imposibles: un cambio que puedes mantener toda la vida.",
   },
 ];
+
+const homepageMethodVideo = knowledgeVideos.find((video) => video.id === "motivacion-real")!;
 ---
 
 <BaseLayout>
@@ -274,6 +278,48 @@ const audience = [
             videoPath={mediaPath("training-action.mp4")}
             ratio="aspect-[4/5]"
           />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== METHOD PHILOSOPHY ====================== -->
+  <section class="bg-navy text-white">
+    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+      <div class="grid items-center gap-14 lg:grid-cols-[1fr_0.55fr] lg:gap-20">
+        <div>
+          <p class="eyebrow text-brand-200">Una forma distinta de entrenar</p>
+          <h2 class="mt-5 max-w-3xl font-display text-4xl font-bold leading-[1.05] sm:text-5xl lg:text-6xl">
+            Hábitos, salud, ciencia y técnica. En ese orden.
+          </h2>
+          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
+            No se trata de acumular sesiones. Se trata de construir un sistema sostenible que mejore tu fuerza, tu energía y tu calidad de vida.
+          </p>
+
+          <ol class="mt-10 grid gap-px overflow-hidden rounded-2xl bg-white/10 ring-1 ring-white/10 sm:grid-cols-2">
+            {[
+              ["01", "Hábitos sostenibles"],
+              ["02", "Salud a largo plazo"],
+              ["03", "Decisiones con ciencia"],
+              ["04", "Técnica con propósito"],
+            ].map(([number, label]) => (
+              <li class="flex items-center gap-4 bg-navy px-5 py-4">
+                <span class="font-display text-sm font-bold text-brand-200">{number}</span>
+                <span class="font-semibold text-white/85">{label}</span>
+              </li>
+            ))}
+          </ol>
+
+          <a href={withBase("metodo")} class="mt-9 inline-flex items-center gap-3 rounded-full bg-white px-7 py-3.5 font-semibold text-brand transition-colors hover:bg-brand-50">
+            Descubre el método
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="mx-auto w-full max-w-[19rem]">
+          <KnowledgeVideoCard video={homepageMethodVideo} compact />
         </div>
       </div>
     </div>

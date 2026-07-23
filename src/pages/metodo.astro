@@ -1,210 +1,160 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import VideoPlaceholder from "../components/VideoPlaceholder.astro";
-import QuoteSection from "../components/QuoteSection.astro";
-import FinalCTA from "../components/FinalCTA.astro";
-import { mediaPath, withBase } from "../utils/paths";
-
+import KnowledgeVideoCard from "../components/KnowledgeVideoCard.astro";
+import { videosForPrinciple, type KnowledgePrinciple } from "../data/knowledgeVideos";
+import { withBase } from "../utils/paths";
 import assessmentImg from "../assets/RicardoFront2.jpg";
-import trainingImg from "../assets/RicardoWorkingOut.jpg";
+
+const principles: Array<{
+  id: KnowledgePrinciple;
+  number: string;
+  title: string;
+  statement: string;
+  body: string;
+  note: string;
+}> = [
+  {
+    id: "habitos",
+    number: "01",
+    title: "Hábitos antes que motivación",
+    statement: "No necesitas motivación infinita. Necesitas un sistema que puedas mantener.",
+    body: "El mejor programa no es el más exigente sobre el papel, sino el que cabe en tu agenda y puedes repetir incluso en semanas difíciles. Reducimos fricción, elegimos prioridades y construimos constancia.",
+    note: "La disciplina también se diseña.",
+  },
+  {
+    id: "salud",
+    number: "02",
+    title: "Salud antes que estética",
+    statement: "El objetivo no es simplemente verte mejor. Es conservar fuerza, energía y autonomía durante muchos años.",
+    body: "La estética puede ser una consecuencia, pero no dirige el proceso. Entrenamos para proteger músculo, movernos con confianza y llegar a cada etapa de la vida con más recursos físicos.",
+    note: "Un cuerpo fuerte es una inversión a largo plazo.",
+  },
+  {
+    id: "ciencia",
+    number: "03",
+    title: "Ciencia antes que modas",
+    statement: "Sin atajos, tendencias ni promesas vacías. Solo decisiones basadas en evidencia y contexto personal.",
+    body: "No todo lo que funciona en internet funciona para ti. Separamos lo importante del ruido y convertimos la evidencia en decisiones sencillas sobre entrenamiento, alimentación y recuperación.",
+    note: "Menos novedades. Más criterio.",
+  },
+  {
+    id: "tecnica",
+    number: "04",
+    title: "Técnica antes que peso",
+    statement: "Antes de levantar más, aprende a moverte mejor.",
+    body: "Cada ejercicio tiene una intención. La posición, el recorrido y el control importan más que el número de la carga. Una técnica sólida permite progresar con seguridad y aprovechar cada repetición.",
+    note: "Control primero. Intensidad después.",
+  },
+];
 
 const phases = [
-  {
-    n: "01",
-    title: "Valoración",
-    lead: "Entender tu punto de partida",
-    body: "Analizamos tu historia, tu nivel actual, tus limitaciones y tu objetivo real. Sin esta foto honesta, ningún plan funciona.",
-    points: ["Entrevista y objetivos", "Valoración física y de movilidad", "Análisis de hábitos y agenda"],
-  },
-  {
-    n: "02",
-    title: "Plan personalizado",
-    lead: "Diseñado solo para ti",
-    body: "Construyo un programa a medida de tu cuerpo, tu tiempo y tus metas. Nada genérico: cada decisión tiene un porqué.",
-    points: ["Programa de entrenamiento propio", "Pautas de nutrición realistas", "Adaptado a tu disponibilidad"],
-  },
-  {
-    n: "03",
-    title: "Entrenamiento supervisado",
-    lead: "Técnica y seguridad en cada sesión",
-    body: "Entrenas conmigo a tu lado, corrigiendo técnica y ajustando cargas. Aprovechas cada minuto y evitas lesiones.",
-    points: ["Supervisión directa", "Corrección técnica continua", "Intensidad ajustada a cada día"],
-  },
-  {
-    n: "04",
-    title: "Progreso sostenible",
-    lead: "Resultados que permanecen",
-    body: "Medimos, ajustamos y consolidamos hábitos que duran cuando termina el programa. El objetivo es tu autonomía.",
-    points: ["Seguimiento medible", "Reajustes periódicos", "Hábitos para toda la vida"],
-  },
+  ["01", "Valoración", "Historia, agenda, nivel actual y objetivos reales."],
+  ["02", "Plan personal", "Entrenamiento, hábitos y prioridades adaptados a ti."],
+  ["03", "Supervisión", "Técnica, intensidad y decisiones ajustadas en cada sesión."],
+  ["04", "Evolución", "Seguimiento, aprendizaje y autonomía a largo plazo."],
 ];
 ---
 
 <BaseLayout
-  title="Método · Ricardo Cobo · Entrenamiento Personal en Santander"
-  description="El método de Ricardo Cobo: valoración, plan personalizado, entrenamiento supervisado y progreso sostenible. Un sistema en cuatro fases para resultados duraderos."
+  title="Método de entrenamiento personal | Ricardo Cobo"
+  description="Un método de entrenamiento personal basado en fuerza, hábitos sostenibles, salud, técnica y acompañamiento individual."
 >
-  <!-- ============================ HERO ============================ -->
-  <section class="relative isolate overflow-hidden bg-navy pt-32">
+  <section class="relative isolate min-h-[88svh] overflow-hidden bg-navy pt-28">
     <img
       src={assessmentImg.src}
-      alt="Ricardo Cobo durante una sesión de valoración"
+      alt="Ricardo Cobo en su espacio de entrenamiento personal"
       width={assessmentImg.width}
       height={assessmentImg.height}
-      class="absolute inset-0 h-full w-full object-cover object-top opacity-40"
+      class="absolute inset-0 h-full w-full object-cover object-top opacity-35"
+      fetchpriority="high"
     />
-    <div class="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/80 to-navy"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/35"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-navy/40"></div>
 
-    <div class="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
-      <div class="max-w-3xl rc-rise">
-        <span class="eyebrow inline-flex items-center gap-2 text-brand-200">
-          <span class="h-px w-8 bg-brand-300"></span>
-          El método
-        </span>
-        <h1 class="mt-6 font-display text-5xl font-extrabold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
-          Un sistema, cuatro fases, resultados que duran
+    <div class="relative mx-auto flex min-h-[calc(88svh-7rem)] max-w-7xl items-end px-5 pb-16 sm:px-8 lg:px-10 lg:pb-24">
+      <div class="max-w-4xl rc-rise">
+        <p class="eyebrow text-brand-200">El método Ricardo Cobo</p>
+        <h1 class="mt-6 max-w-3xl font-display text-5xl font-extrabold leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+          Entrenar mejor para vivir mejor.
         </h1>
         <p class="mt-7 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
-          No improviso. Cada persona avanza por un proceso claro y probado, donde
-          cada fase prepara la siguiente. Así convertimos el esfuerzo en
-          resultados reales y sostenibles.
+          Fuerza, hábitos, nutrición y acompañamiento personal dentro de un sistema pensado para tu vida real, no para una transformación pasajera.
         </p>
+        <div class="mt-9 flex flex-wrap gap-4">
+          <a href={withBase("contacto")} class="rounded-full bg-white px-7 py-3.5 font-semibold text-brand transition-colors hover:bg-brand-50">Hablar con Ricardo</a>
+          <a href="#principios" class="rounded-full border border-white/35 px-7 py-3.5 font-semibold text-white transition-colors hover:border-white hover:bg-white/10">Explorar los principios</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== INTRO + VIDEO ===================== -->
+  <section class="bg-white" aria-label="Manifiesto Ricardo Cobo">
+    <div class="mx-auto max-w-6xl px-5 py-24 sm:px-8 lg:py-32">
+      <p class="eyebrow text-brand">Una mirada a largo plazo</p>
+      <blockquote class="mt-7 max-w-5xl font-display text-3xl font-bold leading-[1.12] text-navy sm:text-4xl lg:text-6xl">
+        No entreno personas para que estén fuertes este verano. Las entreno para que dentro de veinte años sigan pudiendo vivir con fuerza, energía y autonomía.
+      </blockquote>
+      <div class="mt-10 h-1 w-20 bg-brand"></div>
+    </div>
+  </section>
+
+  <div id="principios">
+    {
+      principles.map((principle, index) => {
+        const videos = videosForPrinciple(principle.id);
+        const reversed = index % 2 === 1;
+        const dark = index === 1 || index === 3;
+        return (
+          <section id={principle.id} class:list={[dark ? "bg-navy" : "bg-mist"]}>
+            <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+              <div class="grid items-center gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
+                <div class:list={[reversed && "lg:order-2"]}>
+                  <p class:list={["font-display text-7xl font-extrabold leading-none", dark ? "text-white/10" : "text-brand/15"]}>{principle.number}</p>
+                  <h2 class:list={["mt-5 font-display text-4xl font-bold leading-[1.03] sm:text-5xl", dark ? "text-white" : "text-navy"]}>{principle.title}</h2>
+                  <p class:list={["mt-7 text-xl font-semibold leading-relaxed", dark ? "text-brand-100" : "text-brand"]}>{principle.statement}</p>
+                  <p class:list={["mt-5 text-lg leading-relaxed", dark ? "text-white/65" : "text-slate-blue"]}>{principle.body}</p>
+                  <p class:list={["mt-8 border-l-2 pl-4 text-sm font-semibold uppercase tracking-[0.15em]", dark ? "border-brand-300 text-white/70" : "border-brand text-navy/70"]}>{principle.note}</p>
+                </div>
+
+                <div class:list={["-mx-5 flex snap-x gap-5 overflow-x-auto px-5 pb-5 sm:-mx-8 sm:px-8 lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0 lg:pb-0", reversed && "lg:order-1"]}>
+                  {videos.map((video) => (
+                    <div class="w-[76vw] max-w-[18rem] shrink-0 snap-center lg:w-auto lg:max-w-none">
+                      <KnowledgeVideoCard video={video} compact />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })
+    }
+  </div>
+
   <section class="bg-white">
-    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
-      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <div>
-          <p class="eyebrow text-brand">Todo empieza aquí</p>
-          <h2 class="mt-4 font-display text-3xl font-bold leading-tight text-navy sm:text-4xl lg:text-5xl">
-            La valoración lo cambia todo
-          </h2>
-          <p class="mt-6 text-lg leading-relaxed text-slate-blue">
-            Antes de proponerte nada, dedico tiempo a entenderte. Tu historia, tus
-            lesiones, tu nivel de energía, tu agenda real. Esa primera sesión es la
-            base sobre la que se construye todo lo demás —y la razón por la que el
-            plan funciona desde el primer día.
-          </p>
-          <a
-            href={withBase("contacto")}
-            class="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-brand px-8 py-4 text-base font-semibold text-white shadow-lg shadow-brand/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-700"
-          >
-            Reservar mi valoración
-            <svg class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-              <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </a>
-        </div>
-
-        <div>
-          <!-- Auto-activates when the assessment-session.mp4 file is added to public/media -->
-          <VideoPlaceholder
-            fallbackImage={assessmentImg}
-            alt="Sesión de valoración con Ricardo Cobo"
-            videoPath={mediaPath("assessment-session.mp4")}
-            ratio="aspect-[4/3]"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================== PHASES ======================== -->
-  <section class="bg-mist">
     <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
       <div class="max-w-2xl">
-        <p class="eyebrow text-brand">Las cuatro fases</p>
-        <h2 class="mt-4 font-display text-3xl font-bold leading-[1.1] text-navy sm:text-4xl lg:text-5xl">
-          Del primer día a tu mejor versión
-        </h2>
+        <p class="eyebrow text-brand">Cómo trabajamos</p>
+        <h2 class="mt-4 font-display text-4xl font-bold leading-tight text-navy sm:text-5xl">Los principios se convierten en un plan personal.</h2>
       </div>
-
-      <div class="mt-16 space-y-6">
-        {
-          phases.map((p, i) => (
-            <article class="group grid gap-8 rounded-3xl bg-white p-8 ring-1 ring-haze transition-all duration-300 hover:shadow-xl hover:shadow-brand/10 sm:p-10 lg:grid-cols-[auto_1fr_1fr] lg:items-center lg:gap-12">
-              <div class="font-display text-7xl font-extrabold leading-none text-brand/15 transition-colors duration-300 group-hover:text-brand/30 sm:text-8xl">
-                {p.n}
-              </div>
-              <div>
-                <p class="eyebrow text-brand">{p.lead}</p>
-                <h3 class="mt-2 font-display text-3xl font-bold text-navy">{p.title}</h3>
-                <p class="mt-4 leading-relaxed text-slate-blue">{p.body}</p>
-              </div>
-              <ul class="space-y-3 lg:border-l lg:border-haze lg:pl-12">
-                {p.points.map((pt) => (
-                  <li class="flex items-center gap-3 text-navy">
-                    <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
-                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
-                        <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                    <span class="font-medium">{pt}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))
-        }
-      </div>
+      <ol class="mt-14 grid gap-px overflow-hidden rounded-2xl bg-haze ring-1 ring-haze sm:grid-cols-2 lg:grid-cols-4">
+        {phases.map(([number, title, body]) => (
+          <li class="bg-white p-7 sm:p-8">
+            <span class="font-display text-sm font-bold text-brand">{number}</span>
+            <h3 class="mt-8 font-display text-2xl font-bold text-navy">{title}</h3>
+            <p class="mt-3 leading-relaxed text-slate-blue">{body}</p>
+          </li>
+        ))}
+      </ol>
     </div>
   </section>
 
-  <!-- ========================= QUOTE ========================= -->
-  <QuoteSection
-    quote="El método no es entrenar duro un mes. Es construir algo que dure toda la vida."
-    author="Ricardo Cobo"
-    role="Entrenador personal · Santander"
-    variant="light"
-  />
-
-  <!-- ==================== TRAINING DETAIL ==================== -->
-  <section class="bg-white">
-    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
-      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <div class="overflow-hidden rounded-3xl">
-          <img
-            src={trainingImg.src}
-            alt="Entrenamiento supervisado con Ricardo Cobo"
-            width={trainingImg.width}
-            height={trainingImg.height}
-            class="h-full w-full object-cover"
-            loading="lazy"
-          />
-        </div>
-        <div>
-          <p class="eyebrow text-brand">Por qué este método</p>
-          <h2 class="mt-4 font-display text-3xl font-bold leading-tight text-navy sm:text-4xl">
-            Menos ruido, más resultados
-          </h2>
-          <p class="mt-6 text-lg leading-relaxed text-slate-blue">
-            La industria del fitness vive de la complejidad y de las promesas
-            imposibles. Mi trabajo es justo lo contrario: simplificar, priorizar y
-            acompañarte para que cada semana estés un poco mejor que la anterior.
-          </p>
-          <ul class="mt-8 space-y-4">
-            {
-              [
-                "Sin planes genéricos descargados de internet",
-                "Sin dietas extremas que no puedes mantener",
-                "Sin entrenar por entrenar: cada sesión tiene objetivo",
-                "Con un acompañamiento cercano y profesional",
-              ].map((t) => (
-                <li class="flex items-start gap-3 text-navy">
-                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand" />
-                  <span class="text-lg">{t}</span>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
+  <section class="bg-brand text-white">
+    <div class="mx-auto max-w-5xl px-5 py-24 text-center sm:px-8 lg:py-28">
+      <p class="eyebrow text-brand-100">El primer paso</p>
+      <h2 class="mx-auto mt-5 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">Un método diseñado alrededor de tu vida.</h2>
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">Antes de entrenar hay que entender a la persona: su horario, su historia, sus limitaciones y lo que quiere conservar o recuperar.</p>
+      <a href={withBase("contacto")} class="mt-9 inline-flex rounded-full bg-white px-8 py-4 font-semibold text-brand transition-colors hover:bg-brand-50">Reservar una valoración</a>
     </div>
   </section>
-
-  <!-- ====================== FINAL CTA ====================== -->
-  <FinalCTA />
 </BaseLayout>

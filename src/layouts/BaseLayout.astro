@@ -12,6 +12,8 @@ const {
   title = "Ricardo Cobo · Entrenamiento Personal Premium en Santander",
   description = "Entrenamiento personal de alto nivel en Santander para profesionales con poco tiempo. Recupera tu forma física, tu fuerza y tu salud con un método 100% personalizado.",
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
 ---
 
 <!doctype html>
@@ -28,6 +30,9 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Ricardo Cobo" />
+    <meta property="og:url" content={canonicalUrl} />
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Premium editorial typeface pairing -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

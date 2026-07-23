@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import KnowledgeVideoCard from "../components/KnowledgeVideoCard.astro";
+import {
+  knowledgeCategoryLabels,
+  knowledgeVideos,
+  type KnowledgeVideoCategory,
+} from "../data/knowledgeVideos";
+import { withBase } from "../utils/paths";
+
+const filters: Array<{ value: "all" | KnowledgeVideoCategory; label: string }> = [
+  { value: "all", label: "Todos" },
+  ...Object.entries(knowledgeCategoryLabels).map(([value, label]) => ({
+    value: value as KnowledgeVideoCategory,
+    label,
+  })),
+];
+---
+
+<BaseLayout
+  title="Consejos sobre entrenamiento y salud | Ricardo Cobo"
+  description="Consejos claros sobre hábitos, salud, nutrición, entrenamiento y técnica desde el método de Ricardo Cobo."
+>
+  <section class="bg-navy pt-32 text-white">
+    <div class="mx-auto max-w-7xl px-5 pb-20 pt-14 sm:px-8 lg:px-10 lg:pb-28 lg:pt-20">
+      <p class="eyebrow text-brand-200">Conocimiento aplicado</p>
+      <h1 class="mt-6 max-w-4xl font-display text-5xl font-extrabold leading-[0.96] sm:text-6xl lg:text-7xl">
+        Consejos con criterio para entrenar mejor.
+      </h1>
+      <p class="mt-7 max-w-2xl text-lg leading-relaxed text-white/70 sm:text-xl">
+        Ideas breves sobre fuerza, salud, alimentación y técnica. No son recetas universales: son principios para tomar mejores decisiones.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-mist">
+    <div class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
+      <div class="sticky top-[76px] z-30 -mx-5 border-y border-haze bg-white/95 px-5 py-4 backdrop-blur-xl sm:-mx-8 sm:px-8 lg:mx-0 lg:rounded-2xl lg:border lg:px-5">
+        <div class="flex gap-2 overflow-x-auto" role="group" aria-label="Filtrar consejos por categoría">
+          {filters.map((filter) => (
+            <button
+              type="button"
+              class="shrink-0 rounded-full border border-haze px-5 py-2.5 text-sm font-semibold text-navy transition-colors hover:border-brand/30 hover:text-brand aria-pressed:bg-brand aria-pressed:text-white"
+              data-knowledge-filter={filter.value}
+              aria-pressed={filter.value === "all" ? "true" : "false"}
+            >
+              {filter.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <p class="mt-10 text-sm font-semibold text-slate-blue" aria-live="polite" data-filter-status>
+        {knowledgeVideos.length} consejos
+      </p>
+
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" data-knowledge-grid>
+        {knowledgeVideos.map((video) => (
+          <div data-category={video.category}>
+            <KnowledgeVideoCard video={video} />
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-20 border-t border-steel pt-12 sm:flex sm:items-end sm:justify-between sm:gap-10">
+        <div class="max-w-2xl">
+          <p class="eyebrow text-brand">Del consejo al contexto</p>
+          <h2 class="mt-4 font-display text-3xl font-bold leading-tight text-navy sm:text-4xl">Tu plan no debería salir de un vídeo.</h2>
+          <p class="mt-4 text-lg leading-relaxed text-slate-blue">El contenido ayuda a entender. La valoración personal convierte ese conocimiento en decisiones adecuadas para ti.</p>
+        </div>
+        <a href={withBase("contacto")} class="mt-7 inline-flex shrink-0 rounded-full bg-brand px-7 py-3.5 font-semibold text-white transition-colors hover:bg-brand-700 sm:mt-0">Reservar valoración</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-knowledge-filter]"));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-knowledge-grid] > [data-category]"));
+    const status = document.querySelector<HTMLElement>("[data-filter-status]");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.knowledgeFilter ?? "all";
+        let visible = 0;
+
+        buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        cards.forEach((card) => {
+          const show = filter === "all" || card.dataset.category === filter;
+          card.hidden = !show;
+          if (show) visible += 1;
+        });
+
+        if (status) status.textContent = `${visible} ${visible === 1 ? "consejo" : "consejos"}`;
+      });
+    });
+  </script>
+</BaseLayout>
