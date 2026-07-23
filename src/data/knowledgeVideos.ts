@@ -22,7 +22,7 @@ export interface KnowledgeVideo {
 
 export const knowledgeCategoryLabels: Record<KnowledgeVideoCategory, string> = {
   habitos: "Hábitos",
-  salud: "Salud y longevidad",
+  salud: "Salud",
   nutricion: "Nutrición",
   entrenamiento: "Entrenamiento",
   tecnica: "Técnica",

@@ -5,22 +5,18 @@ import { knowledgeMediaPath } from "../utils/paths";
 
 interface Props {
   video: KnowledgeVideo;
-  compact?: boolean;
 }
 
-const { video, compact = false } = Astro.props;
+const { video } = Astro.props;
 const videoSrc = knowledgeMediaPath(video.file);
 const posterSrc = knowledgeMediaPath(`posters/${video.poster}`);
 ---
 
 <article
-  class:list={[
-    "group overflow-hidden rounded-2xl bg-white ring-1 ring-haze transition-shadow duration-300 hover:shadow-xl hover:shadow-brand/10",
-    compact ? "max-w-[19rem]" : "h-full",
-  ]}
+  class="group h-full transition-all duration-500"
   data-knowledge-video-card
 >
-  <div class="relative isolate aspect-[9/16] overflow-hidden bg-navy">
+  <div class="relative isolate aspect-[9/16] overflow-hidden rounded-2xl bg-navy shadow-lg shadow-black/10 transition-shadow duration-500 group-hover:shadow-2xl group-hover:shadow-brand/15">
     <div
       class="absolute inset-0 scale-110 bg-cover bg-center opacity-25 blur-2xl"
       style={`background-image: url('${posterSrc}')`}
@@ -35,26 +31,27 @@ const posterSrc = knowledgeMediaPath(`posters/${video.poster}`);
       data-src={videoSrc}
       aria-label={`Reproducir: ${video.title}`}
     ></video>
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-1/3 bg-gradient-to-t from-black/20 to-transparent"></div>
     <button
       type="button"
-      class="absolute inset-0 z-20 flex items-center justify-center bg-navy/10 transition-colors hover:bg-navy/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-5px] focus-visible:outline-white"
+      class="absolute inset-0 z-20 flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-5px] focus-visible:outline-white"
       aria-label={`Reproducir vídeo: ${video.title}`}
       data-video-play
     >
-      <span class="flex h-16 w-16 items-center justify-center rounded-full bg-white text-brand shadow-2xl transition-transform duration-300 group-hover:scale-105" aria-hidden="true">
-        <svg class="ml-1 h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+      <span class="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-brand shadow-2xl shadow-black/15 backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:bg-white" aria-hidden="true">
+        <svg class="ml-0.5 h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
           <path d="M8 5v14l11-7z" />
         </svg>
       </span>
     </button>
   </div>
 
-  <div class:list={[compact ? "p-5" : "p-6"]}>
-    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand">
+  <div class="px-0.5 pt-4 pb-1">
+    <p class="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-brand/55">
       {knowledgeCategoryLabels[video.category]}
     </p>
-    <h3 class="mt-2 font-display text-xl font-bold leading-tight text-navy">{video.title}</h3>
-    <p class="mt-2 text-sm leading-relaxed text-slate-blue">{video.description}</p>
+    <h3 class="mt-2 font-display text-base font-bold leading-snug text-navy">{video.title}</h3>
+    <p class="mt-1.5 text-[0.82rem] leading-relaxed text-slate-blue/70">{video.description}</p>
   </div>
 </article>
 

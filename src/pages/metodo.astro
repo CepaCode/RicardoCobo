@@ -1,7 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import KnowledgeVideoCard from "../components/KnowledgeVideoCard.astro";
-import { videosForPrinciple, type KnowledgePrinciple } from "../data/knowledgeVideos";
+import {
+  videosForPrinciple,
+  knowledgeVideos,
+  knowledgeCategoryLabels,
+  type KnowledgePrinciple,
+  type KnowledgeVideoCategory,
+} from "../data/knowledgeVideos";
 import { withBase } from "../utils/paths";
 import assessmentImg from "../assets/RicardoFront2.jpg";
 
@@ -53,12 +59,21 @@ const phases = [
   ["03", "Supervisión", "Técnica, intensidad y decisiones ajustadas en cada sesión."],
   ["04", "Evolución", "Seguimiento, aprendizaje y autonomía a largo plazo."],
 ];
+
+const filters: Array<{ value: "all" | KnowledgeVideoCategory; label: string }> = [
+  { value: "all", label: "Todos" },
+  ...Object.entries(knowledgeCategoryLabels).map(([value, label]) => ({
+    value: value as KnowledgeVideoCategory,
+    label,
+  })),
+];
 ---
 
 <BaseLayout
   title="Método de entrenamiento personal | Ricardo Cobo"
   description="Un método de entrenamiento personal basado en fuerza, hábitos sostenibles, salud, técnica y acompañamiento individual."
 >
+  <!-- ═══════════ HERO ═══════════ -->
   <section class="relative isolate min-h-[88svh] overflow-hidden bg-navy pt-28">
     <img
       src={assessmentImg.src}
@@ -88,38 +103,47 @@ const phases = [
     </div>
   </section>
 
+  <!-- ═══════════ MANIFESTO ═══════════ -->
   <section class="bg-white" aria-label="Manifiesto Ricardo Cobo">
-    <div class="mx-auto max-w-6xl px-5 py-24 sm:px-8 lg:py-32">
+    <div class="mx-auto max-w-6xl px-5 py-28 sm:px-8 lg:py-36">
       <p class="eyebrow text-brand">Una mirada a largo plazo</p>
-      <blockquote class="mt-7 max-w-5xl font-display text-3xl font-bold leading-[1.12] text-navy sm:text-4xl lg:text-6xl">
+      <blockquote class="mt-8 max-w-5xl font-display text-3xl font-bold leading-[1.12] text-navy sm:text-4xl lg:text-6xl">
         No entreno personas para que estén fuertes este verano. Las entreno para que dentro de veinte años sigan pudiendo vivir con fuerza, energía y autonomía.
       </blockquote>
-      <div class="mt-10 h-1 w-20 bg-brand"></div>
+      <div class="mt-12 h-1 w-20 bg-brand"></div>
     </div>
   </section>
 
+  <!-- ═══════════ PART A — PRINCIPLES ═══════════ -->
   <div id="principios">
     {
       principles.map((principle, index) => {
-        const videos = videosForPrinciple(principle.id);
+        const videos = videosForPrinciple(principle.id).slice(0, 2);
         const reversed = index % 2 === 1;
         const dark = index === 1 || index === 3;
         return (
           <section id={principle.id} class:list={[dark ? "bg-navy" : "bg-mist"]}>
-            <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
-              <div class="grid items-center gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
+            <div class="mx-auto max-w-7xl px-5 py-28 sm:px-8 lg:px-10 lg:py-36">
+              <div class="grid items-center gap-16 lg:grid-cols-[0.45fr_0.55fr] lg:gap-20">
+                {/* ── Text column ── */}
                 <div class:list={[reversed && "lg:order-2"]}>
-                  <p class:list={["font-display text-7xl font-extrabold leading-none", dark ? "text-white/10" : "text-brand/15"]}>{principle.number}</p>
-                  <h2 class:list={["mt-5 font-display text-4xl font-bold leading-[1.03] sm:text-5xl", dark ? "text-white" : "text-navy"]}>{principle.title}</h2>
-                  <p class:list={["mt-7 text-xl font-semibold leading-relaxed", dark ? "text-brand-100" : "text-brand"]}>{principle.statement}</p>
-                  <p class:list={["mt-5 text-lg leading-relaxed", dark ? "text-white/65" : "text-slate-blue"]}>{principle.body}</p>
-                  <p class:list={["mt-8 border-l-2 pl-4 text-sm font-semibold uppercase tracking-[0.15em]", dark ? "border-brand-300 text-white/70" : "border-brand text-navy/70"]}>{principle.note}</p>
+                  <p class:list={["font-display text-8xl font-extrabold leading-none", dark ? "text-white/[0.06]" : "text-brand/10"]}>{principle.number}</p>
+                  <h2 class:list={["mt-6 font-display text-4xl font-bold leading-[1.03] sm:text-5xl", dark ? "text-white" : "text-navy"]}>{principle.title}</h2>
+                  <p class:list={["mt-8 text-xl font-semibold leading-relaxed", dark ? "text-brand-100" : "text-brand"]}>{principle.statement}</p>
+                  <p class:list={["mt-6 text-lg leading-relaxed", dark ? "text-white/60" : "text-slate-blue"]}>{principle.body}</p>
+                  <p class:list={["mt-10 border-l-2 pl-5 text-sm font-semibold uppercase tracking-[0.15em]", dark ? "border-brand-300 text-white/65" : "border-brand text-navy/65"]}>{principle.note}</p>
                 </div>
 
-                <div class:list={["-mx-5 flex snap-x gap-5 overflow-x-auto px-5 pb-5 sm:-mx-8 sm:px-8 lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0 lg:pb-0", reversed && "lg:order-1"]}>
+                {/* ── Video column — carousel → 2-col grid ── */}
+                <div class:list={[
+                  "no-scrollbar -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-pl-5 px-5 pb-2",
+                  "sm:-mx-8 sm:gap-6 sm:scroll-pl-8 sm:px-8",
+                  "lg:mx-0 lg:grid lg:grid-cols-2 lg:gap-7 lg:overflow-visible lg:scroll-auto lg:px-0 lg:pb-0",
+                  reversed && "lg:order-1",
+                ]}>
                   {videos.map((video) => (
-                    <div class="w-[76vw] max-w-[18rem] shrink-0 snap-center lg:w-auto lg:max-w-none">
-                      <KnowledgeVideoCard video={video} compact />
+                    <div class="w-[66vw] max-w-[280px] shrink-0 snap-start sm:w-[44vw] lg:w-auto lg:max-w-none">
+                      <KnowledgeVideoCard video={video} />
                     </div>
                   ))}
                 </div>
@@ -131,30 +155,114 @@ const phases = [
     }
   </div>
 
-  <section class="bg-white">
-    <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:px-10 lg:py-32">
+  <!-- ═══════════ PART B — KNOWLEDGE LIBRARY ═══════════ -->
+  <section class="bg-white" id="biblioteca">
+    <div class="mx-auto max-w-7xl px-5 py-28 sm:px-8 lg:px-10 lg:py-36">
+      <div class="max-w-2xl">
+        <p class="eyebrow text-brand">Conocimiento aplicado</p>
+        <h2 class="mt-5 font-display text-4xl font-bold leading-tight text-navy sm:text-5xl">
+          Explora todos los consejos
+        </h2>
+        <p class="mt-6 text-lg leading-relaxed text-slate-blue">
+          Ideas breves sobre fuerza, salud, alimentación y técnica. No son recetas universales: son principios para tomar mejores decisiones.
+        </p>
+      </div>
+
+      <div class="sticky top-[76px] z-30 -mx-5 mt-16 border-y border-haze bg-white/95 px-5 py-4 backdrop-blur-xl sm:-mx-8 sm:px-8 lg:mx-0 lg:rounded-2xl lg:border lg:px-6">
+        <div class="no-scrollbar flex gap-2 overflow-x-auto" role="group" aria-label="Filtrar consejos por categoría">
+          {filters.map((filter) => (
+            <button
+              type="button"
+              class="shrink-0 rounded-full border border-haze px-5 py-2.5 text-sm font-semibold text-navy transition-all duration-300 hover:border-brand/30 hover:text-brand aria-pressed:border-brand aria-pressed:bg-brand aria-pressed:text-white"
+              data-knowledge-filter={filter.value}
+              aria-pressed={filter.value === "all" ? "true" : "false"}
+            >
+              {filter.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <p class="mt-10 text-sm font-semibold text-slate-blue/70" aria-live="polite" data-filter-status>
+        {knowledgeVideos.length} consejos
+      </p>
+
+      <div class="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" data-knowledge-grid>
+        {knowledgeVideos.map((video) => (
+          <div data-category={video.category}>
+            <KnowledgeVideoCard video={video} />
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-28 border-t border-steel/50 pt-14 sm:flex sm:items-end sm:justify-between sm:gap-10">
+        <div class="max-w-2xl">
+          <p class="eyebrow text-brand">Del consejo al contexto</p>
+          <h2 class="mt-4 font-display text-3xl font-bold leading-tight text-navy sm:text-4xl">
+            Tu plan no debería salir de un vídeo.
+          </h2>
+          <p class="mt-5 text-lg leading-relaxed text-slate-blue">
+            El contenido ayuda a entender. La valoración personal convierte ese conocimiento en decisiones adecuadas para ti.
+          </p>
+        </div>
+        <a
+          href={withBase("contacto")}
+          class="mt-8 inline-flex shrink-0 rounded-full bg-brand px-7 py-3.5 font-semibold text-white transition-colors hover:bg-brand-700 sm:mt-0"
+        >
+          Reservar valoración
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ HOW WE WORK — PHASES ═══════════ -->
+  <section class="bg-mist">
+    <div class="mx-auto max-w-7xl px-5 py-28 sm:px-8 lg:px-10 lg:py-36">
       <div class="max-w-2xl">
         <p class="eyebrow text-brand">Cómo trabajamos</p>
         <h2 class="mt-4 font-display text-4xl font-bold leading-tight text-navy sm:text-5xl">Los principios se convierten en un plan personal.</h2>
       </div>
-      <ol class="mt-14 grid gap-px overflow-hidden rounded-2xl bg-haze ring-1 ring-haze sm:grid-cols-2 lg:grid-cols-4">
+      <ol class="mt-16 grid gap-px overflow-hidden rounded-2xl bg-haze ring-1 ring-haze sm:grid-cols-2 lg:grid-cols-4">
         {phases.map(([number, title, body]) => (
-          <li class="bg-white p-7 sm:p-8">
+          <li class="bg-white p-8 sm:p-9">
             <span class="font-display text-sm font-bold text-brand">{number}</span>
-            <h3 class="mt-8 font-display text-2xl font-bold text-navy">{title}</h3>
-            <p class="mt-3 leading-relaxed text-slate-blue">{body}</p>
+            <h3 class="mt-9 font-display text-2xl font-bold text-navy">{title}</h3>
+            <p class="mt-4 leading-relaxed text-slate-blue">{body}</p>
           </li>
         ))}
       </ol>
     </div>
   </section>
 
+  <!-- ═══════════ FINAL CTA ═══════════ -->
   <section class="bg-brand text-white">
-    <div class="mx-auto max-w-5xl px-5 py-24 text-center sm:px-8 lg:py-28">
+    <div class="mx-auto max-w-5xl px-5 py-28 text-center sm:px-8 lg:py-36">
       <p class="eyebrow text-brand-100">El primer paso</p>
-      <h2 class="mx-auto mt-5 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">Un método diseñado alrededor de tu vida.</h2>
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">Antes de entrenar hay que entender a la persona: su horario, su historia, sus limitaciones y lo que quiere conservar o recuperar.</p>
-      <a href={withBase("contacto")} class="mt-9 inline-flex rounded-full bg-white px-8 py-4 font-semibold text-brand transition-colors hover:bg-brand-50">Reservar una valoración</a>
+      <h2 class="mx-auto mt-6 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">Un método diseñado alrededor de tu vida.</h2>
+      <p class="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-white/70">Antes de entrenar hay que entender a la persona: su horario, su historia, sus limitaciones y lo que quiere conservar o recuperar.</p>
+      <a href={withBase("contacto")} class="mt-10 inline-flex rounded-full bg-white px-8 py-4 font-semibold text-brand transition-colors hover:bg-brand-50">Reservar una valoración</a>
     </div>
   </section>
+
+  <script>
+    const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-knowledge-filter]"));
+    const cards = Array.from(document.querySelectorAll<HTMLElement>("[data-knowledge-grid] > [data-category]"));
+    const status = document.querySelector<HTMLElement>("[data-filter-status]");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.knowledgeFilter ?? "all";
+        let visible = 0;
+
+        buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        cards.forEach((card) => {
+          const show = filter === "all" || card.dataset.category === filter;
+          card.hidden = !show;
+          if (show) visible += 1;
+        });
+
+        if (status) status.textContent = `${visible} ${visible === 1 ? "consejo" : "consejos"}`;
+      });
+    });
+  </script>
 </BaseLayout>
