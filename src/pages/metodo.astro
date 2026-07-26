@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import KnowledgeVideoCard from "../components/KnowledgeVideoCard.astro";
+import { Image } from "astro:assets";
 import {
   videosForPrinciple,
   libraryVideos,
@@ -11,7 +12,7 @@ import {
   type KnowledgeVideoCategory,
 } from "../data/knowledgeVideos";
 import { withBase } from "../utils/paths";
-import assessmentImg from "../assets/RicardoFront2.jpg";
+import heroPortrait from "../assets/FotosRicardo/_thumbnails/DSC07372.jpg";
 
 const principles: Array<{
   id: KnowledgePrinciple;
@@ -70,30 +71,56 @@ const defaultCategory = libraryCategories[0];
   description="Un método de entrenamiento personal basado en fuerza, hábitos sostenibles, salud, técnica y acompañamiento individual."
 >
   <!-- ═══════════ HERO ═══════════ -->
-  <section class="relative isolate min-h-[88svh] overflow-hidden bg-navy pt-28">
-    <img
-      src={assessmentImg.src}
-      alt="Ricardo Cobo en su espacio de entrenamiento personal"
-      width={assessmentImg.width}
-      height={assessmentImg.height}
-      class="absolute inset-0 h-full w-full object-cover object-top opacity-35"
-      fetchpriority="high"
-    />
-    <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/35"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-navy/40"></div>
+  <section class="relative isolate overflow-hidden bg-navy pt-28">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute right-[-12%] top-8 h-[78%] w-[64%] rounded-full bg-brand-200/12 blur-[120px]"></div>
+      <div class="absolute -left-24 bottom-[-10%] h-[44%] w-[46%] rounded-full bg-brand-300/10 blur-[100px]"></div>
+    </div>
 
-    <div class="relative mx-auto flex min-h-[calc(88svh-7rem)] max-w-7xl items-end px-5 pb-16 sm:px-8 lg:px-10 lg:pb-24">
-      <div class="max-w-4xl rc-rise">
-        <p class="eyebrow text-brand-200">El método Ricardo Cobo</p>
-        <h1 class="mt-6 max-w-3xl font-display text-5xl font-extrabold leading-[0.95] text-white sm:text-6xl lg:text-7xl">
-          Entrenar mejor para vivir mejor.
-        </h1>
-        <p class="mt-7 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
-          Fuerza, hábitos, nutrición y acompañamiento personal dentro de un sistema pensado para tu vida real, no para una transformación pasajera.
-        </p>
-        <div class="mt-9 flex flex-wrap gap-4">
-          <a href={withBase("contacto")} class="rounded-full bg-white px-7 py-3.5 font-semibold text-brand transition-colors hover:bg-brand-50">Hablar con Ricardo</a>
-          <a href="#principios" class="rounded-full border border-white/35 px-7 py-3.5 font-semibold text-white transition-colors hover:border-white hover:bg-white/10">Explorar los principios</a>
+    <div class="relative mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:px-10 lg:pb-24">
+      <div class="grid min-h-[calc(88svh-7rem)] items-end gap-10 md:grid-cols-[0.96fr_1.04fr] md:gap-5 lg:grid-cols-[0.94fr_1.06fr] lg:gap-4">
+        <div class="max-w-2xl pb-1 rc-rise md:col-start-1 md:row-start-1 md:pb-0">
+          <p class="eyebrow text-brand-200">El método Ricardo Cobo</p>
+          <h1 class="mt-6 font-display text-5xl font-extrabold leading-[0.95] text-white sm:text-6xl xl:text-7xl">
+            Entrenar mejor para vivir mejor.
+          </h1>
+          <p class="mt-7 max-w-xl text-lg leading-relaxed text-white/75 sm:text-xl">
+            Fuerza, hábitos, nutrición y acompañamiento personal dentro de un sistema pensado para tu vida real, no para una transformación pasajera.
+          </p>
+        </div>
+
+        <div class="relative -mx-3 sm:-mx-5 md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0">
+          <div class="absolute inset-x-10 top-10 h-[70%] rounded-[2.5rem] bg-brand-100/20 blur-3xl"></div>
+          <div class="relative min-h-[440px] overflow-hidden rounded-[2rem] border border-white/12 bg-white/[0.04] shadow-[0_30px_100px_rgba(2,9,32,0.55)] sm:min-h-[540px] sm:rounded-[2.6rem] md:min-h-[620px] lg:min-h-[760px] xl:min-h-[840px]">
+            <Image
+              src={heroPortrait}
+              alt="Ricardo Cobo en su espacio de entrenamiento, con una presencia serena y profesional"
+              widths={[500, 700, 900]}
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 72vw, 44vw"
+              quality={88}
+              format="webp"
+              class="absolute inset-0 h-full w-full object-cover object-[56%_26%]"
+              loading="eager"
+            />
+
+            <div class="absolute inset-0 bg-gradient-to-t from-navy/72 via-transparent to-navy/10"></div>
+            <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-navy/80 to-transparent"></div>
+          </div>
+
+          <div class="pointer-events-none absolute -inset-x-4 -bottom-5 h-20 bg-gradient-to-t from-navy to-transparent blur-xl md:hidden"></div>
+        </div>
+
+        <div class="max-w-2xl pb-4 md:col-start-1 md:row-start-2 md:pb-8 lg:pb-10">
+          <ul class="mt-8 grid gap-2.5 text-sm font-semibold uppercase tracking-[0.11em] text-white/70 sm:max-w-xl sm:grid-cols-2">
+            {principles.map((principle) => (
+              <li class="rounded-full border border-white/18 px-4 py-2 backdrop-blur-sm">{principle.title}</li>
+            ))}
+          </ul>
+
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a href={withBase("contacto")} class="rounded-full bg-white px-7 py-3.5 font-semibold text-brand transition-colors hover:bg-brand-50">Hablar con Ricardo</a>
+            <a href="#principios" class="rounded-full border border-white/35 px-7 py-3.5 font-semibold text-white transition-colors hover:border-white hover:bg-white/10">Explorar los principios</a>
+          </div>
         </div>
       </div>
     </div>
