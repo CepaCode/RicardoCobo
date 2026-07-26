@@ -3,7 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import KnowledgeVideoCard from "../components/KnowledgeVideoCard.astro";
 import {
   videosForPrinciple,
-  knowledgeVideos,
+  libraryVideos,
+  libraryCategories,
+  libraryVideosByCategory,
   knowledgeCategoryLabels,
   type KnowledgePrinciple,
   type KnowledgeVideoCategory,
@@ -60,13 +62,7 @@ const phases = [
   ["04", "Evolución", "Seguimiento, aprendizaje y autonomía a largo plazo."],
 ];
 
-const filters: Array<{ value: "all" | KnowledgeVideoCategory; label: string }> = [
-  { value: "all", label: "Todos" },
-  ...Object.entries(knowledgeCategoryLabels).map(([value, label]) => ({
-    value: value as KnowledgeVideoCategory,
-    label,
-  })),
-];
+const defaultCategory = libraryCategories[0];
 ---
 
 <BaseLayout
@@ -161,7 +157,7 @@ const filters: Array<{ value: "all" | KnowledgeVideoCategory; label: string }> =
       <div class="max-w-2xl">
         <p class="eyebrow text-brand">Conocimiento aplicado</p>
         <h2 class="mt-5 font-display text-4xl font-bold leading-tight text-navy sm:text-5xl">
-          Explora todos los consejos
+          Explora por categoría
         </h2>
         <p class="mt-6 text-lg leading-relaxed text-slate-blue">
           Ideas breves sobre fuerza, salud, alimentación y técnica. No son recetas universales: son principios para tomar mejores decisiones.
@@ -170,26 +166,26 @@ const filters: Array<{ value: "all" | KnowledgeVideoCategory; label: string }> =
 
       <div class="sticky top-[76px] z-30 -mx-5 mt-16 border-y border-haze bg-white/95 px-5 py-4 backdrop-blur-xl sm:-mx-8 sm:px-8 lg:mx-0 lg:rounded-2xl lg:border lg:px-6">
         <div class="no-scrollbar flex gap-2 overflow-x-auto" role="group" aria-label="Filtrar consejos por categoría">
-          {filters.map((filter) => (
+          {libraryCategories.map((cat) => (
             <button
               type="button"
               class="shrink-0 rounded-full border border-haze px-5 py-2.5 text-sm font-semibold text-navy transition-all duration-300 hover:border-brand/30 hover:text-brand aria-pressed:border-brand aria-pressed:bg-brand aria-pressed:text-white"
-              data-knowledge-filter={filter.value}
-              aria-pressed={filter.value === "all" ? "true" : "false"}
+              data-knowledge-filter={cat}
+              aria-pressed={cat === defaultCategory ? "true" : "false"}
             >
-              {filter.label}
+              {knowledgeCategoryLabels[cat]}
             </button>
           ))}
         </div>
       </div>
 
       <p class="mt-10 text-sm font-semibold text-slate-blue/70" aria-live="polite" data-filter-status>
-        {knowledgeVideos.length} consejos
+        {libraryVideosByCategory(defaultCategory).length} {libraryVideosByCategory(defaultCategory).length === 1 ? "consejo" : "consejos"}
       </p>
 
       <div class="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" data-knowledge-grid>
-        {knowledgeVideos.map((video) => (
-          <div data-category={video.category}>
+        {libraryVideos.map((video) => (
+          <div data-category={video.category} hidden={video.category !== defaultCategory}>
             <KnowledgeVideoCard video={video} />
           </div>
         ))}
@@ -251,12 +247,12 @@ const filters: Array<{ value: "all" | KnowledgeVideoCategory; label: string }> =
 
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
-        const filter = button.dataset.knowledgeFilter ?? "all";
+        const filter = button.dataset.knowledgeFilter ?? "";
         let visible = 0;
 
         buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
         cards.forEach((card) => {
-          const show = filter === "all" || card.dataset.category === filter;
+          const show = card.dataset.category === filter;
           card.hidden = !show;
           if (show) visible += 1;
         });
