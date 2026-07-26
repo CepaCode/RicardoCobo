@@ -12,7 +12,7 @@ import {
   type KnowledgeVideoCategory,
 } from "../data/knowledgeVideos";
 import { withBase } from "../utils/paths";
-import heroPortrait from "../assets/FotosRicardo/_thumbnails/DSC07372.jpg";
+import heroPortrait from "../assets/FotosRicardo/DSC07372.jpg";
 
 const principles: Array<{
   id: KnowledgePrinciple;
@@ -78,8 +78,8 @@ const defaultCategory = libraryCategories[0];
     </div>
 
     <div class="relative mx-auto max-w-7xl px-5 pb-16 sm:px-8 lg:px-10 lg:pb-24">
-      <div class="grid min-h-[calc(88svh-7rem)] items-end gap-10 md:grid-cols-[0.96fr_1.04fr] md:gap-5 lg:grid-cols-[0.94fr_1.06fr] lg:gap-4">
-        <div class="max-w-2xl pb-1 rc-rise md:col-start-1 md:row-start-1 md:pb-0">
+      <div class="grid min-h-[calc(88svh-7rem)] items-end gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-4">
+        <div class="max-w-2xl pb-1 rc-rise lg:pb-0">
           <p class="eyebrow text-brand-200">El método Ricardo Cobo</p>
           <h1 class="mt-6 font-display text-5xl font-extrabold leading-[0.95] text-white sm:text-6xl xl:text-7xl">
             Entrenar mejor para vivir mejor.
@@ -89,15 +89,17 @@ const defaultCategory = libraryCategories[0];
           </p>
         </div>
 
-        <div class="relative -mx-3 sm:-mx-5 md:col-start-2 md:row-start-1 md:row-span-2 md:mx-0">
+        <div class="relative -mx-3 sm:-mx-5 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:mx-0">
           <div class="absolute inset-x-10 top-10 h-[70%] rounded-[2.5rem] bg-brand-100/20 blur-3xl"></div>
-          <div class="relative min-h-[440px] overflow-hidden rounded-[2rem] border border-white/12 bg-white/[0.04] shadow-[0_30px_100px_rgba(2,9,32,0.55)] sm:min-h-[540px] sm:rounded-[2.6rem] md:min-h-[620px] lg:min-h-[760px] xl:min-h-[840px]">
+          <div class="relative min-h-[440px] overflow-hidden rounded-[2rem] border border-white/12 bg-white/[0.04] shadow-[0_30px_100px_rgba(2,9,32,0.55)] sm:min-h-[540px] sm:rounded-[2.6rem] md:min-h-[620px] lg:min-h-[560px] xl:min-h-[840px]">
             <Image
               src={heroPortrait}
               alt="Ricardo Cobo en su espacio de entrenamiento, con una presencia serena y profesional"
-              widths={[500, 700, 900]}
-              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 72vw, 44vw"
-              quality={88}
+              width={1600}
+              height={2400}
+              widths={[900, 1200, 1440, 1600, 1920]}
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 50vw, 44vw"
+              quality={90}
               format="webp"
               class="absolute inset-0 h-full w-full object-cover object-[56%_26%]"
               loading="eager"
@@ -107,13 +109,13 @@ const defaultCategory = libraryCategories[0];
             <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-navy/80 to-transparent"></div>
           </div>
 
-          <div class="pointer-events-none absolute -inset-x-4 -bottom-5 h-20 bg-gradient-to-t from-navy to-transparent blur-xl md:hidden"></div>
+          <div class="pointer-events-none absolute -inset-x-4 -bottom-5 h-20 bg-gradient-to-t from-navy to-transparent blur-xl lg:hidden"></div>
         </div>
 
-        <div class="max-w-2xl pb-4 md:col-start-1 md:row-start-2 md:pb-8 lg:pb-10">
-          <ul class="mt-8 grid gap-2.5 text-sm font-semibold uppercase tracking-[0.11em] text-white/70 sm:max-w-xl sm:grid-cols-2">
+        <div class="max-w-2xl pb-4 lg:pb-10">
+          <ul class="mt-8 flex flex-wrap gap-2.5 text-[clamp(0.7rem,1.3vw,0.88rem)] font-semibold uppercase tracking-[0.08em] text-white/70 sm:max-w-2xl sm:tracking-[0.1em]">
             {principles.map((principle) => (
-              <li class="rounded-full border border-white/18 px-4 py-2 backdrop-blur-sm">{principle.title}</li>
+              <li class="whitespace-nowrap rounded-full border border-white/18 px-4 py-2 backdrop-blur-sm">{principle.title}</li>
             ))}
           </ul>
 
