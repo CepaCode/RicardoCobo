@@ -49,9 +49,9 @@ export const knowledgeVideos: KnowledgeVideo[] = [
   // ═══════════════════════════════════════════════════════════════
   {
     id: "tour-gimnasio",
-    originalFile: "Pack 1/Ricardo Tour.mp4",
+    originalFile: "Pack 1/Ricardo Nº7.mp4",
     file: "tour-gimnasio.mp4",
-    poster: "tour-gimnasio.webp",
+    poster: "tour-gimnasio.jpg",
     title: "Tour del gimnasio",
     description: "El espacio donde cada sesión se adapta a la persona.",
     category: "metodo",
