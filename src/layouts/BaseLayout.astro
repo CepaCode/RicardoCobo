@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import favicon from "../assets/imgLogoRCFondoAzul.png";
 
 interface Props {
   title?: string;
@@ -24,6 +25,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin)
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#062170" />
+    <link rel="icon" type="image/png" href={favicon.src} />
 
     <!-- Open Graph (prototype defaults) -->
     <meta property="og:type" content="website" />

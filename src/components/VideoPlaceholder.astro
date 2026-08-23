@@ -74,15 +74,21 @@ const overlayClass =
 
   <div class="absolute inset-0 bg-brand/15 mix-blend-multiply"></div>
 
-  <div class="absolute inset-0 flex items-center justify-center transition-opacity duration-500 group-data-[state=playing]:opacity-0">
+  <button
+    type="button"
+    class="absolute inset-0 flex cursor-pointer items-center justify-center transition-opacity duration-500 group-data-[state=playing]:pointer-events-none group-data-[state=playing]:opacity-0"
+    aria-label={`Reproducir vídeo: ${alt}`}
+    data-video-play
+  >
     <span
       class="flex h-16 w-16 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/40 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:bg-white/25 sm:h-20 sm:w-20"
+      aria-hidden="true"
     >
       <svg class="ml-1 h-7 w-7 text-white sm:h-8 sm:w-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M8 5v14l11-7z" />
       </svg>
     </span>
-  </div>
+  </button>
 
   {showOverlayInfo && (
     <>
@@ -108,19 +114,27 @@ const overlayClass =
 
 <script>
   const setup = (root: HTMLElement) => {
+    if (root.dataset.videoReady === "true") return;
+    root.dataset.videoReady = "true";
+
     const video = root.querySelector<HTMLVideoElement>("video");
     if (!video) return;
 
     const img = root.querySelector<HTMLImageElement>("img");
+    const playButton = root.querySelector<HTMLButtonElement>("[data-video-play]");
     const delay = Number(root.dataset.fallbackDelay ?? 0);
 
     const showImage = () => {
       if (img) img.dataset.shown = "";
     };
 
-    const reveal = () => {
-      root.dataset.state = "playing";
+    const markReady = () => {
       video.dataset.ready = "";
+    };
+
+    const reveal = () => {
+      markReady();
+      root.dataset.state = "playing";
     };
 
     const fail = () => {
@@ -128,6 +142,15 @@ const overlayClass =
       delete video.dataset.ready;
       showImage();
     };
+
+    playButton?.addEventListener("click", async () => {
+      video.controls = true;
+      try {
+        await video.play();
+      } catch {
+        root.dataset.state = "paused";
+      }
+    });
 
     if (delay > 0) {
       window.setTimeout(() => {
@@ -137,11 +160,20 @@ const overlayClass =
       showImage();
     }
 
-    if (video.readyState >= 2) reveal();
+    if (video.readyState >= 2) {
+      markReady();
+      root.dataset.state = video.paused ? "paused" : "playing";
+    }
 
     video.addEventListener("playing", reveal, { once: true });
     video.addEventListener("loadeddata", () => {
-      if (video.readyState >= 2) reveal();
+      if (video.readyState >= 2) {
+        markReady();
+        if (video.paused) root.dataset.state = "paused";
+      }
+    });
+    video.addEventListener("pause", () => {
+      if (!video.ended) root.dataset.state = "paused";
     });
     video.addEventListener("error", fail);
     video.querySelector("source")?.addEventListener("error", fail);
@@ -155,4 +187,9 @@ const overlayClass =
   document
     .querySelectorAll<HTMLElement>("[data-video-placeholder]")
     .forEach(setup);
+  document.addEventListener("astro:page-load", () => {
+    document
+      .querySelectorAll<HTMLElement>("[data-video-placeholder]")
+      .forEach(setup);
+  });
 </script>
